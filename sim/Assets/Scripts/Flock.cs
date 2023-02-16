@@ -55,10 +55,13 @@ public class Flock : MonoBehaviour
             speed = gSpeed/groupSize;
 
             Vector2 direction = (vCenter) + vAvoid - (Vector2)transform.position;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
             
             if (direction != Vector2.zero)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), WolfFlockManager.Instance.rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rot, WolfFlockManager.Instance.rotationSpeed * Time.deltaTime);
             }
         }
     }
