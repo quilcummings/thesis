@@ -1040,7 +1040,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3088,12 +3088,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416b562bc82d5e54193e04589958c5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pack: []
   wolfPrefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
   packSize: 5
-  pack: []
-  limits: {x: 2, y: 2}
-  minSpeed: 0.15
-  maxSpeed: 0.53
+  limits: {x: 2, y: 2, z: 1}
+  minSpeed: 0.1
+  maxSpeed: 0.2
   neighborDistance: 3
   rotationSpeed: 1
 --- !u!4 &1163924397

@@ -61,6 +61,7 @@ public class Flock : MonoBehaviour
             
             if (direction != Vector2.zero)
             {
+                //Quaternion.LookRotation(direction)
                 transform.rotation = Quaternion.Slerp(transform.rotation, rot, WolfFlockManager.Instance.rotationSpeed * Time.deltaTime);
             }
         }
