@@ -13,6 +13,12 @@ public class Wolf : MonoBehaviour
 
     void Start()
     {
+        // random range of speed for each wolf
+        // random x y offset?
+        // random radius from target for wolves to wander
+        // rotation oscillating
+        
+        
         velocity = new Vector2(Random.Range(0.01f,0.3f), Random.Range(0.01f, 0.3f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
