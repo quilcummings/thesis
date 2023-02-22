@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wolf : MonoBehaviour
+public class Deer : MonoBehaviour
 {
     public GameObject manager;
     public Vector2 location = Vector2.zero;
@@ -15,16 +15,8 @@ public class Wolf : MonoBehaviour
 
     void Start()
     {
-        // random range of speed for each wolf
-        // random x y offset?
-        // random radius from target for wolves to wander
-        // rotation oscillating
-        
-        
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
-
-        //SpriteRenderer sr = GetComponent<SpriteRenderer>();
     }
 
     Vector2 seek(Vector2 target)
@@ -36,7 +28,6 @@ public class Wolf : MonoBehaviour
     {
         Vector3 force = new Vector3(f.x, f.y, 0);
         this.GetComponent<Rigidbody2D>().AddForce(force);
-        Debug.DrawRay(this.transform.position, force, Color.white);
     }
 
     void flock()
@@ -52,7 +43,7 @@ public class Wolf : MonoBehaviour
 
         applyForce(currentForce);
 
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.6f, 0.6f), Mathf.Clamp(velocity.y, -0.6f, 0.6f));
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.1f, 0.1f), Mathf.Clamp(velocity.y, -0.1f, 0.1f));
     }
 
     void Update()
@@ -66,10 +57,8 @@ public class Wolf : MonoBehaviour
             sr.flipX = false;
         }
 
-        
         flock();
-        goalPos.x = manager.transform.position.x + Random.Range(-50f,50f);
-        goalPos.y = manager.transform.position.y + Random.Range(-50f,50f);
-        //goalPos = manager.transform.position;
+        goalPos.x = manager.transform.position.x + Random.Range(-100f,100f);
+        goalPos.y = manager.transform.position.y + Random.Range(-100f,100f);
     }
 }
