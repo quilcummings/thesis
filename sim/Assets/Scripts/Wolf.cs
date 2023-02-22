@@ -11,6 +11,8 @@ public class Wolf : MonoBehaviour
     Vector2 currentForce;
     public SpriteRenderer sr;
 
+    private float time;
+
     void Start()
     {
         // random range of speed for each wolf
@@ -19,7 +21,7 @@ public class Wolf : MonoBehaviour
         // rotation oscillating
         
         
-        velocity = new Vector2(Random.Range(0.01f,0.3f), Random.Range(0.01f, 0.3f));
+        velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         //SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -42,16 +44,15 @@ public class Wolf : MonoBehaviour
         location = this.transform.position;
         velocity = this.GetComponent<Rigidbody2D>().velocity;
 
-        Debug.Log(velocity);
-
         Vector2 gl;
+        
         gl = seek(goalPos);
         currentForce = gl;
         currentForce = currentForce.normalized;
 
         applyForce(currentForce);
 
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.4f, 0.4f), Mathf.Clamp(velocity.y, -0.4f, 0.4f));
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.6f, 0.6f), Mathf.Clamp(velocity.y, -0.6f, 0.6f));
     }
 
     void Update()
@@ -64,7 +65,11 @@ public class Wolf : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+        
         flock();
-        goalPos = manager.transform.position;
+        goalPos.x = manager.transform.position.x + Random.Range(-5f,5f);
+        goalPos.y = manager.transform.position.y + Random.Range(-5f,5f);
+        //goalPos = manager.transform.position;
     }
 }

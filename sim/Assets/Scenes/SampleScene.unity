@@ -3090,7 +3090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pack: []
   wolfPrefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
-  packSize: 5
+  packSize: 7
   limits: {x: 2, y: 2, z: 1}
   minSpeed: 0.1
   maxSpeed: 0.2
