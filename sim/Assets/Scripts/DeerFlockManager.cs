@@ -30,4 +30,9 @@ public class DeerFlockManager : MonoBehaviour
             herd[i].GetComponent<Deer>().manager = this.gameObject;
         }
     }
+
+    void Update()
+    {
+        
+    }
 }

@@ -45,6 +45,8 @@ public class WolfFlockManager : MonoBehaviour
 
     void Update()
     {
-        
+        // if close
+        // movetowards deerflockmanager
+        // 
     }
 }

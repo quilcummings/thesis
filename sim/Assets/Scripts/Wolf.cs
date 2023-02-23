@@ -12,6 +12,7 @@ public class Wolf : MonoBehaviour
     public SpriteRenderer sr;
 
     private float time;
+    GameObject[] deer;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class Wolf : MonoBehaviour
         // random radius from target for wolves to wander
         // rotation oscillating
         
+        deer = GameObject.FindGameObjectsWithTag("Deer");
         
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
@@ -71,5 +73,14 @@ public class Wolf : MonoBehaviour
         goalPos.x = manager.transform.position.x + Random.Range(-50f,50f);
         goalPos.y = manager.transform.position.y + Random.Range(-50f,50f);
         //goalPos = manager.transform.position;
+
+        foreach(GameObject go in deer)
+        {
+            if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+            {
+                Debug.Log("CLOSE");
+            }
+        }
+
     }
 }
