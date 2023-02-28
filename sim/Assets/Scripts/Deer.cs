@@ -12,9 +12,12 @@ public class Deer : MonoBehaviour
     public SpriteRenderer sr;
 
     private float time;
+    GameObject[] wolves;
 
     void Start()
     {
+        wolves = GameObject.FindGameObjectsWithTag("Wolf");
+
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
     }
@@ -43,7 +46,7 @@ public class Deer : MonoBehaviour
 
         applyForce(currentForce);
 
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.1f, 0.1f), Mathf.Clamp(velocity.y, -0.1f, 0.1f));
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -0.2f, 0.2f), Mathf.Clamp(velocity.y, -0.2f, 0.2f));
     }
 
     void Update()
@@ -60,5 +63,23 @@ public class Deer : MonoBehaviour
         flock();
         goalPos.x = manager.transform.position.x + Random.Range(-100f,100f);
         goalPos.y = manager.transform.position.y + Random.Range(-100f,100f);
+
+        foreach(GameObject go in wolves)
+        {
+            if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+            {
+                float step = .1f * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, go.transform.position, step*-1);
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Wolf")
+        {
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+        }
     }
 }

@@ -76,10 +76,26 @@ public class Wolf : MonoBehaviour
 
         foreach(GameObject go in deer)
         {
-            if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+            if (go.activeSelf)
             {
-                Debug.Log("CLOSE");
+                if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+                {
+                    Debug.Log("Close");
+
+                    if (go.transform.position.x > transform.position.x)
+                    {
+                        sr.flipX = false;
+                    }
+                    else
+                    {
+                        sr.flipX = true;
+                    }
+
+                    float step = .1f * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
+                }
             }
+            
         }
 
     }
