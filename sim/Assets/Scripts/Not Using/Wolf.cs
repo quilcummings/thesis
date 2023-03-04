@@ -14,6 +14,20 @@ public class Wolf : MonoBehaviour
     private float time;
     GameObject[] deer;
 
+    // animal parent class > predator class > wolf
+    // animal parent class > prey class > deer
+    // every animal has a list of its prey
+    // 
+    // bear, rabbit, fish?
+    // 
+    // 
+    // hunger???? starve to death
+    // thirsty???
+    // sleep???
+    // age??
+    // reproduction? death?
+    // time of day ? day night cycle ? 
+
     void Start()
     {
         // random range of speed for each wolf

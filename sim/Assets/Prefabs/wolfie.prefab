@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5204539472157001636}
   - component: {fileID: 2881805735090573827}
   - component: {fileID: -555314528027597634}
+  - component: {fileID: 4486169848143628898}
   - component: {fileID: 1311275361915591068}
-  - component: {fileID: 5299764226732723919}
   - component: {fileID: 5850637815427855147}
   - component: {fileID: 7627903093249300061}
   m_Layer: 0
@@ -109,7 +109,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1311275361915591068
+--- !u!114 &4486169848143628898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,14 +118,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477551714035997370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da2c54c3d364fe43b248d053fc37169, type: 3}
+  m_Script: {fileID: 11500000, guid: 8609baacbd75a1d489af23468e26fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   location: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
+  goalPos: {x: 0, y: 0}
+  currentForce: {x: 0, y: 0}
   sr: {fileID: 2881805735090573827}
---- !u!114 &5299764226732723919
+  time: 0
+  hungry: 0
+  prey: []
+  predator: []
+--- !u!114 &1311275361915591068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477551714035997370}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bff391f868973c499084498cf4adca3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8da2c54c3d364fe43b248d053fc37169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  location: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
+  sr: {fileID: 2881805735090573827}
 --- !u!50 &5850637815427855147
 Rigidbody2D:
   serializedVersion: 4

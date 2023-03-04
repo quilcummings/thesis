@@ -12,15 +12,18 @@ public class WolfFlockManager : MonoBehaviour
     
     public Vector3 limits = new Vector3(1, 1, 1);
 
-    [Header ("Wolf Settings")]
-    [Range(0.0f, 5.0f)]
-    public float minSpeed;
-    [Range(0.0f, 5.0f)]
-    public float maxSpeed;
-    [Range(1.0f, 10.0f)]
-    public float neighborDistance;
-    [Range(1.0f, 5.0f)]
-    public float rotationSpeed;
+    private float randX;
+    private float randY;
+
+    // [Header ("Wolf Settings")]
+    // [Range(0.0f, 5.0f)]
+    // public float minSpeed;
+    // [Range(0.0f, 5.0f)]
+    // public float maxSpeed;
+    // [Range(1.0f, 10.0f)]
+    // public float neighborDistance;
+    // [Range(1.0f, 5.0f)]
+    // public float rotationSpeed;
 
 
     void Awake()
@@ -41,12 +44,47 @@ public class WolfFlockManager : MonoBehaviour
             pack[i] = Instantiate(wolfPrefab, this.transform.position + pos, Quaternion.identity);
             pack[i].GetComponent<Wolf>().manager = this.gameObject;
         }
+
+        StartCoroutine(randomMovement(15f));
     }
 
     void Update()
     {
-        // if close
-        // movetowards deerflockmanager
-        // 
+        float step = .1f * Time.deltaTime;
+        Vector2 pos = new Vector2(randX, randY);
+        transform.position = Vector3.MoveTowards(transform.position, pos, step);
+    }
+
+    public IEnumerator randomMovement(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            randY = Random.Range(-15f, 15f);
+            if (Mathf.Abs(randY) > 0 && Mathf.Abs(randY) <= 2)
+            {
+                randX = Random.Range(4f, 16f);
+            }
+            else if (Mathf.Abs(randY) > 2 && Mathf.Abs(randY) <= 6)
+            {
+                randX = Random.Range(4f, 14f);
+            }
+            else if (Mathf.Abs(randY) > 6 && Mathf.Abs(randY) <= 10)
+            {
+                randX = Random.Range(4f, 11.5f);
+            }
+            else if (Mathf.Abs(randY) > 10 && Mathf.Abs(randY) <= 14)
+            {
+                randX = Random.Range(4f, 9f);
+            }
+            else if (Mathf.Abs(randY) > 14 && Mathf.Abs(randY) <= 15)
+            {
+                randX = Random.Range(4f, 7.5f);
+            }
+
+            Debug.Log("X: " + randX);
+            Debug.Log("Y: " + randY);
+            
+        }
     }
 }
