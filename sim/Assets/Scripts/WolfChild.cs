@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WolfChild : Animal
 {
-    
+    IEnumerator hunger;
+    IEnumerator starvation;
+
     void Start()
     {
         prey = GameObject.FindGameObjectsWithTag("Deer");
@@ -12,12 +14,28 @@ public class WolfChild : Animal
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-        StartCoroutine(checkHunger(10f));
+        hunger = checkHunger(15f);
+        starvation = checkStarvation(60f);
+
+        StartCoroutine(hunger);
+        //StartCoroutine(checkHunger(15f));  
     }
 
     
     void Update()
     {
+        if (death)
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Starved to Death");
+        }
+        if (hungry && check)
+        {
+            StartCoroutine(starvation);
+            check = false;
+        }
+
+
         if (velocity.x < 0 && sr != null)
         {
             sr.flipX = true;
@@ -51,7 +69,6 @@ public class WolfChild : Animal
 
                         float step = .1f * Time.deltaTime;
                         transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
-                        Debug.Log("Attack");
                     }
                 }
             }
@@ -69,6 +86,8 @@ public class WolfChild : Animal
         if (col.gameObject.tag == "Deer")
         {
             hungry = false;
+            check = true;
+            StopCoroutine(starvation);
         }
     }
 }

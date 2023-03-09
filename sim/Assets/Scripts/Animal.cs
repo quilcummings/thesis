@@ -14,6 +14,8 @@ public class Animal : MonoBehaviour
     public float time;
 
     public bool hungry = false;
+    public bool death = false;
+    public bool check = true;
 
     public GameObject[] prey;
     public GameObject[] predator;
@@ -52,6 +54,18 @@ public class Animal : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             hungry = true;
+        }
+    }
+
+    public IEnumerator checkStarvation(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            if (hungry)
+            {
+                death = true;
+            }
         }
     }
 }
