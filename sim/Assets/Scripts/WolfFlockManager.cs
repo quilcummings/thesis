@@ -7,6 +7,7 @@ public class WolfFlockManager : MonoBehaviour
     public static WolfFlockManager Instance;
 
     public GameObject[] pack;
+    public GameObject[] litter;
     public GameObject wolfPrefab;
     public int packSize = 5;
     
@@ -42,10 +43,11 @@ public class WolfFlockManager : MonoBehaviour
             Vector3 pos = new Vector3(posX, posY, posZ);
             //pack[i] = Instantiate(wolfPrefab, pos, Quaternion.identity);
             pack[i] = Instantiate(wolfPrefab, this.transform.position + pos, Quaternion.identity);
-            pack[i].GetComponent<Wolf>().manager = this.gameObject;
+            //pack[i].GetComponent<Wolf>().manager = this.gameObject;
         }
 
         StartCoroutine(randomMovement(15f));
+        StartCoroutine(newWolves(60f));
     }
 
     void Update()
@@ -85,6 +87,27 @@ public class WolfFlockManager : MonoBehaviour
             Debug.Log("X: " + randX);
             Debug.Log("Y: " + randY);
             
+        }
+    }
+
+    public IEnumerator newWolves(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            int litterSize = Random.Range(4, 6);
+            
+            litter = new GameObject[litterSize];
+            for (int i = 0; i < litterSize; i++)
+            {
+                float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
+                float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
+                float posZ = 0f;
+                Vector3 pos = new Vector3(posX, posY, posZ);
+                //pack[i] = Instantiate(wolfPrefab, pos, Quaternion.identity);
+                litter[i] = Instantiate(wolfPrefab, this.transform.position + pos, Quaternion.identity);
+                //litter[i].GetComponent<Wolf>().manager = this.gameObject;
+            }
         }
     }
 }

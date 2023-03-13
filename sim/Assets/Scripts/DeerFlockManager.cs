@@ -7,6 +7,7 @@ public class DeerFlockManager : MonoBehaviour
     public static DeerFlockManager Instance;
 
     public GameObject[] herd;
+    public GameObject[] fawns;
     public GameObject deerPrefab;
     public int herdSize = 10;
     
@@ -29,10 +30,32 @@ public class DeerFlockManager : MonoBehaviour
             herd[i] = Instantiate(deerPrefab, this.transform.position + pos, Quaternion.identity);
             herd[i].GetComponent<Deer>().manager = this.gameObject;
         }
+        
+        StartCoroutine(newDeer(60f));
     }
 
     void Update()
     {
         
+    }
+    
+    public IEnumerator newDeer(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            
+            foreach (GameObject go in herd)
+            {
+                if (go.activeSelf)
+                {
+                    float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
+                    float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
+                    float posZ = 0f;
+                    Vector3 pos = new Vector3(posX, posY, posZ);
+                    Instantiate(deerPrefab, this.transform.position + pos, Quaternion.identity);
+                }
+            }
+        }
     }
 }

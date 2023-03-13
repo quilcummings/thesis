@@ -10,12 +10,14 @@ public class Animal : MonoBehaviour
     public Vector2 goalPos = Vector2.zero;
     public Vector2 currentForce;
     public SpriteRenderer sr;
+    public Rigidbody2D rb;
 
     public float time;
-
     public bool hungry = false;
     public bool death = false;
+    public bool dead = false;
     public bool check = true;
+    
 
     public GameObject[] prey;
     public GameObject[] predator;
@@ -50,11 +52,8 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
-            hungry = true;
-        }
+        yield return new WaitForSeconds(waitTime);
+        hungry = true;
     }
 
     public IEnumerator checkStarvation(float waitTime)
@@ -62,10 +61,20 @@ public class Animal : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            if (hungry)
+            if (!hungry)
+            {
+                yield break;
+            }
+            if (hungry) 
             {
                 death = true;
             }
         }
+    }
+    
+    public IEnumerator die()
+    {
+        yield return new WaitForSeconds(5);
+        dead = true;
     }
 }

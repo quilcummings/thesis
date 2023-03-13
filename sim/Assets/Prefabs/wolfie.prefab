@@ -121,16 +121,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8609baacbd75a1d489af23468e26fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   location: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   goalPos: {x: 0, y: 0}
   currentForce: {x: 0, y: 0}
   sr: {fileID: 2881805735090573827}
+  rb: {fileID: 5850637815427855147}
   time: 0
   hungry: 0
+  death: 0
+  dead: 0
+  check: 1
   prey: []
   predator: []
+  animator: {fileID: -555314528027597634}
 --- !u!114 &1311275361915591068
 MonoBehaviour:
   m_ObjectHideFlags: 0

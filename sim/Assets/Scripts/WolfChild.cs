@@ -6,6 +6,9 @@ public class WolfChild : Animal
 {
     IEnumerator hunger;
     IEnumerator starvation;
+    IEnumerator dying;
+    
+    public Animator animator;
 
     void Start()
     {
@@ -16,6 +19,7 @@ public class WolfChild : Animal
 
         hunger = checkHunger(15f);
         starvation = checkStarvation(60f);
+        dying = die();
 
         StartCoroutine(hunger);
         //StartCoroutine(checkHunger(15f));  
@@ -26,8 +30,15 @@ public class WolfChild : Animal
     {
         if (death)
         {
-            gameObject.SetActive(false);
+            animator.SetBool("dead", true);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            //gameObject.SetActive(false);
+            StartCoroutine(dying);
             Debug.Log("Starved to Death");
+        }
+        if (dead)
+        {
+            //gameObject.SetActive(false);
         }
         if (hungry && check)
         {
@@ -87,6 +98,7 @@ public class WolfChild : Animal
         {
             hungry = false;
             check = true;
+            StartCoroutine(hunger);
             StopCoroutine(starvation);
         }
     }
