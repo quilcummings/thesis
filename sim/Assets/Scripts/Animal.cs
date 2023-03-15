@@ -52,24 +52,25 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
+        Debug.Log("Hunger Corot");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
     }
 
     public IEnumerator checkStarvation(float waitTime)
     {
-        while (true)
+        Debug.Log("Starve Corot");
+        yield return new WaitForSeconds(waitTime);
+        if (!hungry)
         {
-            yield return new WaitForSeconds(waitTime);
-            if (!hungry)
-            {
-                yield break;
-            }
-            if (hungry) 
-            {
-                death = true;
-            }
+            Debug.Log("Starve Corot break");
+            yield break;
         }
+        if (hungry && !check) 
+        {
+            death = true;
+        }
+        
     }
     
     public IEnumerator die()

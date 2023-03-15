@@ -1,28 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class WolfChild : Animal
 {
-    IEnumerator hunger;
-    IEnumerator starvation;
-    IEnumerator dying;
+    Coroutine hunger;
+    Coroutine starvation;
+    Coroutine dying;
     
     public Animator animator;
 
     void Start()
     {
-        prey = GameObject.FindGameObjectsWithTag("Deer");
-        
+        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");;
+        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");;
+        prey = deer.Concat(rabbits).ToArray();
+
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-        hunger = checkHunger(15f);
-        starvation = checkStarvation(60f);
-        dying = die();
-
-        StartCoroutine(hunger);
-        //StartCoroutine(checkHunger(15f));  
+        hunger = StartCoroutine(checkHunger(15f));
     }
 
     
@@ -32,21 +30,17 @@ public class WolfChild : Animal
         {
             animator.SetBool("dead", true);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            //gameObject.SetActive(false);
-            StartCoroutine(dying);
             Debug.Log("Starved to Death");
+            death = false;
+            dead = true;
         }
-        if (dead)
-        {
-            //gameObject.SetActive(false);
-        }
+        
         if (hungry && check)
         {
-            StartCoroutine(starvation);
+            starvation = StartCoroutine(checkStarvation(60f));
             check = false;
         }
-
-
+        
         if (velocity.x < 0 && sr != null)
         {
             sr.flipX = true;
@@ -61,7 +55,7 @@ public class WolfChild : Animal
         // goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
         // goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
     
-        if (hungry)
+        if (hungry && !dead)
         {
             foreach(GameObject go in prey)
             {
@@ -94,12 +88,17 @@ public class WolfChild : Animal
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Deer")
+        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
         {
             hungry = false;
             check = true;
-            StartCoroutine(hunger);
+            //StopCoroutine(checkHunger(15f));
+            //StopCoroutine(checkStarvation(60f));
+            
+            StopCoroutine(hunger);
             StopCoroutine(starvation);
+            
+            hunger = StartCoroutine(checkHunger(15f));
         }
     }
 }

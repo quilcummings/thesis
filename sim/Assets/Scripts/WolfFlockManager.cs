@@ -9,7 +9,7 @@ public class WolfFlockManager : MonoBehaviour
     public GameObject[] pack;
     public GameObject[] litter;
     public GameObject wolfPrefab;
-    public int packSize = 5;
+    public int packSize = 1;
     
     public Vector3 limits = new Vector3(1, 1, 1);
 
@@ -36,18 +36,16 @@ public class WolfFlockManager : MonoBehaviour
         pack = new GameObject[packSize];
         for (int i = 0; i < packSize; i++)
         {
-            //Vector2 pos = this.transform.position + new Vector2(Random.Range(-limits.x, limits.x), Random.Range(-limits.y, limits.y));
             float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
             float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
             float posZ = 0f;
             Vector3 pos = new Vector3(posX, posY, posZ);
-            //pack[i] = Instantiate(wolfPrefab, pos, Quaternion.identity);
             pack[i] = Instantiate(wolfPrefab, this.transform.position + pos, Quaternion.identity);
             //pack[i].GetComponent<Wolf>().manager = this.gameObject;
         }
 
         StartCoroutine(randomMovement(15f));
-        StartCoroutine(newWolves(60f));
+        //StartCoroutine(newWolves(60f));
     }
 
     void Update()
@@ -84,8 +82,8 @@ public class WolfFlockManager : MonoBehaviour
                 randX = Random.Range(4f, 7.5f);
             }
 
-            Debug.Log("X: " + randX);
-            Debug.Log("Y: " + randY);
+            //Debug.Log("X: " + randX);
+            //Debug.Log("Y: " + randY);
             
         }
     }

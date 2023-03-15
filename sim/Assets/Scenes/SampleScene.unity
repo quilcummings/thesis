@@ -123,6 +123,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29156}
+  - component: {fileID: 29155}
+  m_Layer: 0
+  m_Name: RabbitFlockManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &29155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060bb5e8c3d824a669153b2ba92ac162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colony: []
+  kittens: []
+  rabbitPrefab: {fileID: 4135746295649754378, guid: 0eb097bebb22d43e6a09e5029b531388, type: 3}
+  colonySize: 10
+  limits: {x: 1, y: 1, z: 1}
+--- !u!4 &29156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.72, y: 0.04, z: -0.13744658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &48033183
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61916554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.358991, y: 3.7365904, z: 0.06748935}
+  m_LocalPosition: {x: 2.3, y: -3.98, z: 0.06748935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   herd: []
+  fawns: []
   deerPrefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
   herdSize: 10
   limits: {x: 1, y: 1, z: 1}
@@ -3138,8 +3188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pack: []
+  litter: []
   wolfPrefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
-  packSize: 7
+  packSize: 5
   limits: {x: 2, y: 2, z: 1}
 --- !u!4 &1163924397
 Transform:
@@ -3149,7 +3200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163924395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.13, y: -1.34, z: 0}
+  m_LocalPosition: {x: 6.55, y: 6.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
