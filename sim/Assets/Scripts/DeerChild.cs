@@ -25,8 +25,8 @@ public class DeerChild : Animal
         }
 
         flock(0.2f);
-        goalPos.x = DeerFlockManager.Instance.transform.position.x + Random.Range(-100f,100f);
-        goalPos.y = DeerFlockManager.Instance.transform.position.y + Random.Range(-100f,100f);
+        goalPos.x = DeerFlockManager.Instance.transform.position.x + Random.Range(-200f,200f);
+        goalPos.y = DeerFlockManager.Instance.transform.position.y + Random.Range(-200f,200f);
 
         // foreach(GameObject go in predator)
         // {

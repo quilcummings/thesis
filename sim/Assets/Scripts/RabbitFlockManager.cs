@@ -32,7 +32,7 @@ public class RabbitFlockManager : MonoBehaviour
             colony[i] = Instantiate(rabbitPrefab, this.transform.position + pos, Quaternion.identity);
         }
         
-        StartCoroutine(newRabbits(60f));
+        StartCoroutine(newRabbits(40f));
     }
 
     public IEnumerator newRabbits(float waitTime)

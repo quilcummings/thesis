@@ -9,13 +9,15 @@ public class CoyoteChild : Animal
     Coroutine hunger;
     Coroutine starvation;
     Coroutine dying;
+
+    private GameObject[] combo;
     
     void Start()
     {
         GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
         GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
         GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
-        GameObject[] combo = deer.Concat(rabbits).ToArray();
+        combo = deer.Concat(rabbits).ToArray();
         prey = combo.Concat(deadWolves).ToArray();
 
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
@@ -43,31 +45,35 @@ public class CoyoteChild : Animal
         
         if (hungry)
         {
-            foreach(GameObject go in prey)
-            {
-                if (go.activeSelf)
-                {
-                    if(Vector3.Distance(transform.position, go.transform.position) < 3f)
-                    {
-                        if (go.transform.position.x > transform.position.x)
-                        {
-                            sr.flipX = false;
-                        }
-                        else
-                        {
-                            sr.flipX = true;
-                        }
+            GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
+            prey = combo.Concat(deadWolves).ToArray();
+            
+            attack();
+            //foreach(GameObject go in prey)
+            //{
+            //    if (go.activeSelf)
+            //    {
+            //        if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+            //        {
+            //            if (go.transform.position.x > transform.position.x)
+            //            {
+            //                sr.flipX = false;
+            //            }
+            //            else
+            //            {
+            //                sr.flipX = true;
+            //            }
 
-                        float step = .1f * Time.deltaTime;
-                        transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
-                    }
-                }
-            }
+            //            float step = .1f * Time.deltaTime;
+            //            transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
+            //        }
+            //    }
+            //}
         }
         
         flock(0.6f);
-        goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
-        goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
+        goalPos.x = CoyoteFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
+        goalPos.y = CoyoteFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
         
         void OnCollisionEnter2D(Collision2D col)
         {

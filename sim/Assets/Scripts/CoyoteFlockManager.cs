@@ -34,7 +34,7 @@ public class CoyoteFlockManager : MonoBehaviour
             //pack[i].GetComponent<Wolf>().manager = this.gameObject;
         }
 
-        StartCoroutine(randomMovement(15f));
+        StartCoroutine(randomMovement(10f));
         //StartCoroutine(newCoyotes(120f));
     }
 

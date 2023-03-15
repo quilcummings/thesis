@@ -50,6 +50,30 @@ public class Animal : MonoBehaviour
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
     }
 
+    public void attack()
+    {
+        foreach(GameObject go in prey)
+        {
+            if (go.activeSelf)
+            {
+                if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+                {
+                    if (go.transform.position.x > transform.position.x)
+                    {
+                        sr.flipX = false;
+                    }
+                    else
+                    {
+                        sr.flipX = true;
+                    }
+
+                    float step = .1f * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
+                }
+            }
+        }
+    }
+
     public IEnumerator checkHunger(float waitTime)
     {
         Debug.Log("Hunger Corot");

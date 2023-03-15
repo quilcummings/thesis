@@ -3200,7 +3200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163924395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.55, y: 6.21, z: 0}
+  m_LocalPosition: {x: 5.12, y: 6.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4162,7 +4162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pack: []
   litter: []
-  coyotePrefab: {fileID: 0}
+  coyotePrefab: {fileID: 7275949259770234941, guid: dfa61743199c54a85b427c580957da1f, type: 3}
   packSize: 5
   limits: {x: 1, y: 1, z: 1}
 --- !u!4 &1825552685
@@ -4173,7 +4173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825552683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.454173, y: 2.8119512, z: -0.23871271}
+  m_LocalPosition: {x: 0.3, y: -2.04, z: -0.23871271}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

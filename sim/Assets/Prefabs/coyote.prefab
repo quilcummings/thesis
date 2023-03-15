@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5068256503595347842}
   - component: {fileID: 4746816074276594416}
   - component: {fileID: 7625175478975543456}
+  - component: {fileID: 1219350633007886423}
   - component: {fileID: 2313291776127737867}
   - component: {fileID: 5243299391463906948}
   m_Layer: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 833946998, guid: 5cff3269bb7f040e282bfea948328164, type: 3}
   m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   m_FlipX: 0
@@ -107,6 +108,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1219350633007886423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275949259770234941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801f5c45584514a8283d25477fdf1c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
+  goalPos: {x: 0, y: 0}
+  currentForce: {x: 0, y: 0}
+  sr: {fileID: 4746816074276594416}
+  rb: {fileID: 2313291776127737867}
+  time: 0
+  hungry: 0
+  death: 0
+  dead: 0
+  check: 1
+  prey: []
+  predator: []
 --- !u!50 &2313291776127737867
 Rigidbody2D:
   serializedVersion: 4
@@ -145,7 +171,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.88285714, y: 0.5314286}
+    oldSize: {x: 0.42916667, y: 0.25833333}
     newSize: {x: 3.09, y: 1.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
