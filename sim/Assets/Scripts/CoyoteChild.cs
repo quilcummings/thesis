@@ -3,39 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class WolfChild : Animal
+
+public class CoyoteChild : Animal
 {
     Coroutine hunger;
     Coroutine starvation;
     Coroutine dying;
     
-    public Animator animator;
-
     void Start()
     {
-        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");;
-        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");;
-        prey = deer.Concat(rabbits).ToArray();
+        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
+        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
+        GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
+        GameObject[] combo = deer.Concat(rabbits).ToArray();
+        prey = combo.Concat(deadWolves).ToArray();
 
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         hunger = StartCoroutine(checkHunger(15f));
     }
-
     
     void Update()
     {
-        if (death)
-        {
-            animator.SetBool("dead", true);
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            Debug.Log("Starved to Death");
-            gameObject.tag = "Carrion";
-            death = false;
-            dead = true;
-        }
-        
         if (hungry && check)
         {
             starvation = StartCoroutine(checkStarvation(60f));
@@ -50,13 +40,8 @@ public class WolfChild : Animal
         {
             sr.flipX = false;
         }
-
         
-        // flock(0.6f);
-        // goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
-        // goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
-    
-        if (hungry && !dead)
+        if (hungry)
         {
             foreach(GameObject go in prey)
             {
@@ -79,27 +64,23 @@ public class WolfChild : Animal
                 }
             }
         }
-
+        
         flock(0.6f);
         goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
         goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
-
-       
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
+        
+        void OnCollisionEnter2D(Collision2D col)
         {
-            hungry = false;
-            check = true;
-            //StopCoroutine(checkHunger(15f));
-            //StopCoroutine(checkStarvation(60f));
+            if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
+            {
+                hungry = false;
+                check = true;
+
+                StopCoroutine(hunger);
+                StopCoroutine(starvation);
             
-            StopCoroutine(hunger);
-            StopCoroutine(starvation);
-            
-            hunger = StartCoroutine(checkHunger(15f));
+                hunger = StartCoroutine(checkHunger(15f));
+            }
         }
     }
 }
