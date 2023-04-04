@@ -44,15 +44,15 @@ public class WolfFlockManager : MonoBehaviour
             //pack[i].GetComponent<Wolf>().manager = this.gameObject;
         }
 
-        StartCoroutine(randomMovement(15f));
+        //StartCoroutine(randomMovement(15f));
         StartCoroutine(newWolves(60f));
     }
 
     void Update()
     {
-        float step = .1f * Time.deltaTime;
-        Vector2 pos = new Vector2(randX, randY);
-        transform.position = Vector3.MoveTowards(transform.position, pos, step);
+        //float step = .1f * Time.deltaTime;
+        //Vector2 pos = new Vector2(randX, randY);
+        //transform.position = Vector3.MoveTowards(transform.position, pos, step);
     }
 
     public IEnumerator randomMovement(float waitTime)
