@@ -34,7 +34,7 @@ public class RabbitChild : Animal
     {
         if (col.gameObject.tag == "Wolf" || col.gameObject.tag == "Coyote")
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             //Destroy(gameObject);
         }
     }

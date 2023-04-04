@@ -31,7 +31,7 @@ public class DeerFlockManager : MonoBehaviour
             //herd[i].GetComponent<Deer>().manager = this.gameObject;
         }
         
-        StartCoroutine(newDeer(40f));
+        StartCoroutine(newDeer(60f));
     }
 
     void Update()

@@ -20,7 +20,7 @@ public class WolfChild : Animal
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-        hunger = StartCoroutine(checkHunger(15f));
+        hunger = StartCoroutine(checkHunger(10f));
     }
 
     
@@ -71,20 +71,23 @@ public class WolfChild : Animal
     {
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
         {
-            hungry = false;
-            check = true;
-            //StopCoroutine(checkHunger(15f));
-            //StopCoroutine(checkStarvation(60f));
+            if (hungry)
+            {
+                col.gameObject.SetActive(false);
+
+                hungry = false;
+                check = true;
             
-            StopCoroutine(hunger);
-            StopCoroutine(starvation);
+                StopCoroutine(hunger);
+                StopCoroutine(starvation);
             
-            hunger = StartCoroutine(checkHunger(15f));
+                hunger = StartCoroutine(checkHunger(15f));
+            }
         }
 
         if (col.gameObject.tag == "Coyote" && dead)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }

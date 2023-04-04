@@ -31,7 +31,7 @@ public class RabbitFlockManager : MonoBehaviour
             Vector3 pos = new Vector3(posX, posY, posZ);
             colony[i] = Instantiate(rabbitPrefab, this.transform.position + pos, Quaternion.identity);
         }
-        StartCoroutine(newRabbits(30f));
+        StartCoroutine(newRabbits(40f));
     }
 
     public IEnumerator newRabbits(float waitTime)

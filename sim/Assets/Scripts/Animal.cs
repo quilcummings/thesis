@@ -95,6 +95,7 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
+        Debug.Log("HUNGRY COROT");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
     }

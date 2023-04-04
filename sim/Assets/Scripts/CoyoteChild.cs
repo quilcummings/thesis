@@ -23,7 +23,7 @@ public class CoyoteChild : Animal
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
-        hunger = StartCoroutine(checkHunger(15f));
+        hunger = StartCoroutine(checkHunger(10f));
     }
     
     void Update()
@@ -68,13 +68,18 @@ public class CoyoteChild : Animal
     {
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
         {
-            hungry = false;
-            check = true;
+            if (hungry)
+            {
+                col.gameObject.SetActive(false);
 
-            StopCoroutine(hunger);
-            StopCoroutine(starvation);
+                hungry = false;
+                check = true;
+
+                StopCoroutine(hunger);
+                StopCoroutine(starvation);
             
-            hunger = StartCoroutine(checkHunger(15f));
+                hunger = StartCoroutine(checkHunger(15f));
+            } 
         }
     }
 }
