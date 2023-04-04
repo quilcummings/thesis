@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2881805735090573827}
   - component: {fileID: -555314528027597634}
   - component: {fileID: 4486169848143628898}
-  - component: {fileID: 1311275361915591068}
   - component: {fileID: 5850637815427855147}
   - component: {fileID: 7627903093249300061}
   m_Layer: 0
@@ -135,22 +134,6 @@ MonoBehaviour:
   prey: []
   predator: []
   animator: {fileID: -555314528027597634}
---- !u!114 &1311275361915591068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477551714035997370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da2c54c3d364fe43b248d053fc37169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  location: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
-  sr: {fileID: 2881805735090573827}
 --- !u!50 &5850637815427855147
 Rigidbody2D:
   serializedVersion: 4

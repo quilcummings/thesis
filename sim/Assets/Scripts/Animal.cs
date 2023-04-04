@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    //public GameObject manager;
     public Vector2 location = Vector2.zero;
     public Vector2 velocity;
     public Vector2 goalPos = Vector2.zero;
@@ -22,6 +21,10 @@ public class Animal : MonoBehaviour
     public GameObject[] prey;
     public GameObject[] predator;
 
+    void Start()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
+    }
 
     Vector2 seek(Vector2 target)
     {
@@ -31,13 +34,13 @@ public class Animal : MonoBehaviour
     public void applyForce(Vector2 f)
     {
         Vector3 force = new Vector3(f.x, f.y, 0);
-        this.GetComponent<Rigidbody2D>().AddForce(force);
+        rb.AddForce(force);
     }
 
     public void flock(float clamp)
     {
         location = this.transform.position;
-        velocity = this.GetComponent<Rigidbody2D>().velocity;
+        velocity = rb.velocity;
 
         Vector2 gl;
         
@@ -46,29 +49,45 @@ public class Animal : MonoBehaviour
         currentForce = currentForce.normalized;
 
         applyForce(currentForce);
-
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
+        
+        rb.velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
     }
 
-    public void attack()
+    public void attack(float clamp)
     {
         foreach(GameObject go in prey)
         {
             if (go.activeSelf)
             {
-                if(Vector3.Distance(transform.position, go.transform.position) < 3f)
+                if(Vector3.Distance(transform.position, go.transform.position) < 3f && hungry)
                 {
-                    if (go.transform.position.x > transform.position.x)
-                    {
-                        sr.flipX = false;
-                    }
-                    else
-                    {
-                        sr.flipX = true;
-                    }
+                    //if (go.transform.position.x > transform.position.x)
+                    //{
+                    //    sr.flipX = false;
+                    //}
+                    //else
+                    //{
+                    //    sr.flipX = true;
+                    //}
 
-                    float step = .1f * Time.deltaTime;
-                    transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
+                    //float step = .1f * Time.deltaTime;
+                    //transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
+                    
+                    
+                    location = this.transform.position;
+                    velocity = rb.velocity;
+
+                    Vector2 gl;
+        
+                    gl = seek(go.transform.position);
+                    currentForce = gl;
+                    currentForce = currentForce.normalized;
+
+                    applyForce(currentForce);
+
+                    rb.velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
+
+                    hungry = false;
                 }
             }
         }
@@ -76,18 +95,15 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
-        Debug.Log("Hunger Corot");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
     }
 
     public IEnumerator checkStarvation(float waitTime)
     {
-        Debug.Log("Starve Corot");
         yield return new WaitForSeconds(waitTime);
         if (!hungry)
         {
-            Debug.Log("Starve Corot break");
             yield break;
         }
         if (hungry && !check) 

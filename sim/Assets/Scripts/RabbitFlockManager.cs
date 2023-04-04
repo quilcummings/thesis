@@ -31,8 +31,7 @@ public class RabbitFlockManager : MonoBehaviour
             Vector3 pos = new Vector3(posX, posY, posZ);
             colony[i] = Instantiate(rabbitPrefab, this.transform.position + pos, Quaternion.identity);
         }
-        
-        StartCoroutine(newRabbits(40f));
+        StartCoroutine(newRabbits(30f));
     }
 
     public IEnumerator newRabbits(float waitTime)
@@ -45,11 +44,7 @@ public class RabbitFlockManager : MonoBehaviour
             {
                 if (go.activeSelf)
                 {
-                    float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
-                    float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
-                    float posZ = 0f;
-                    Vector3 pos = new Vector3(posX, posY, posZ);
-                    Instantiate(rabbitPrefab, this.transform.position + pos, Quaternion.identity);
+                    Instantiate(rabbitPrefab, this.transform.position, Quaternion.identity);
                 }
             }
         }

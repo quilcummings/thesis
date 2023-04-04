@@ -57,27 +57,7 @@ public class WolfChild : Animal
     
         if (hungry && !dead)
         {
-            attack();
-            //foreach(GameObject go in prey)
-            //{
-            //    if (go.activeSelf)
-            //    {
-            //        if(Vector3.Distance(transform.position, go.transform.position) < 3f)
-            //        {
-            //            if (go.transform.position.x > transform.position.x)
-            //            {
-            //                sr.flipX = false;
-            //            }
-            //            else
-            //            {
-            //                sr.flipX = true;
-            //            }
-
-            //            float step = .1f * Time.deltaTime;
-            //            transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
-            //        }
-            //    }
-            //}
+            attack(.6f);
         }
 
         flock(0.6f);

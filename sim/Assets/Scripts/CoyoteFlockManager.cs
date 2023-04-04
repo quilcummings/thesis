@@ -35,7 +35,7 @@ public class CoyoteFlockManager : MonoBehaviour
         }
 
         StartCoroutine(randomMovement(10f));
-        //StartCoroutine(newCoyotes(120f));
+        StartCoroutine(newCoyotes(120f));
     }
 
     
@@ -89,7 +89,7 @@ public class CoyoteFlockManager : MonoBehaviour
                 float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
                 float posZ = 0f;
                 Vector3 pos = new Vector3(posX, posY, posZ);
-                litter[i] = Instantiate(coyotePrefab, this.transform.position + pos, Quaternion.identity);
+                litter[i] = Instantiate(coyotePrefab, this.transform.position, Quaternion.identity);
             }
         }
     }

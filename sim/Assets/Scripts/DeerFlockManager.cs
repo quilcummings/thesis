@@ -28,10 +28,10 @@ public class DeerFlockManager : MonoBehaviour
             float posZ = 0f;
             Vector3 pos = new Vector3(posX, posY, posZ);
             herd[i] = Instantiate(deerPrefab, this.transform.position + pos, Quaternion.identity);
-            herd[i].GetComponent<Deer>().manager = this.gameObject;
+            //herd[i].GetComponent<Deer>().manager = this.gameObject;
         }
         
-        StartCoroutine(newDeer(60f));
+        StartCoroutine(newDeer(40f));
     }
 
     void Update()
@@ -49,11 +49,7 @@ public class DeerFlockManager : MonoBehaviour
             {
                 if (go.activeSelf)
                 {
-                    float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
-                    float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
-                    float posZ = 0f;
-                    Vector3 pos = new Vector3(posX, posY, posZ);
-                    Instantiate(deerPrefab, this.transform.position + pos, Quaternion.identity);
+                    Instantiate(deerPrefab, this.transform.position, Quaternion.identity);
                 }
             }
         }

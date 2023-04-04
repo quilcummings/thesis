@@ -45,7 +45,7 @@ public class WolfFlockManager : MonoBehaviour
         }
 
         StartCoroutine(randomMovement(15f));
-        //StartCoroutine(newWolves(60f));
+        StartCoroutine(newWolves(60f));
     }
 
     void Update()
@@ -93,17 +93,12 @@ public class WolfFlockManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            int litterSize = Random.Range(4, 6);
+            int litterSize = Random.Range(3, 5);
             
             litter = new GameObject[litterSize];
             for (int i = 0; i < litterSize; i++)
             {
-                float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
-                float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
-                float posZ = 0f;
-                Vector3 pos = new Vector3(posX, posY, posZ);
-                //pack[i] = Instantiate(wolfPrefab, pos, Quaternion.identity);
-                litter[i] = Instantiate(wolfPrefab, this.transform.position + pos, Quaternion.identity);
+                litter[i] = Instantiate(wolfPrefab, this.transform.position, Quaternion.identity);
                 //litter[i].GetComponent<Wolf>().manager = this.gameObject;
             }
         }
