@@ -68,8 +68,10 @@ public class CoyoteChild : Animal
     {
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
         {
+
             if (hungry)
             {
+                Debug.Log("COYOTE EATING");
                 col.gameObject.SetActive(false);
 
                 hungry = false;
@@ -79,7 +81,10 @@ public class CoyoteChild : Animal
                 StopCoroutine(starvation);
             
                 hunger = StartCoroutine(checkHunger(15f));
-            } 
+            }
+            
+           
         }
     }
 }
+

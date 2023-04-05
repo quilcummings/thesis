@@ -87,7 +87,6 @@ public class Animal : MonoBehaviour
 
                     rb.velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
 
-                    hungry = false;
                 }
             }
         }
@@ -95,8 +94,10 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
+        Debug.Log("Checking Hunger");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
+        Debug.Log("Hungry");
     }
 
     public IEnumerator checkStarvation(float waitTime)

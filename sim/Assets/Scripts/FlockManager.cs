@@ -5,17 +5,25 @@ using UnityEngine.Tilemaps;
 
 public class FlockManager : MonoBehaviour
 {
+    public static FlockManager Instance;
+    
+    public GameObject[] group;
+    public GameObject[] newAnimals;
+    public GameObject prefab;
+    public GameObject manager;
+    public int groupSize;
+    
+    public Vector3 limits = new Vector3(1, 1, 1);
+
     public Tilemap tilemap;
+    public List<Vector3> tileWorldLocations;
 
-    public GameObject WolfManager;
-    public GameObject RabbitManager;
-    public GameObject CoyoteManager;
-    public GameObject DeerManager;
+    void Awake()
+    {
+        Instance = this;
+    }
 
-    private List<Vector3> tileWorldLocations;
-
-
-    void Start() 
+    public void setup(GameObject man)
     {
         tileWorldLocations = new List<Vector3>();
 
@@ -32,14 +40,9 @@ public class FlockManager : MonoBehaviour
         }
 
         var randInt = Random.Range(0, 131);
-        WolfManager.transform.position = tileWorldLocations[randInt]; 
+        man.transform.position = tileWorldLocations[randInt]; 
 
         StartCoroutine(randMovement(5f, randInt));
-        
-    }
-
-    void Update()
-    {
 
     }
 
@@ -54,22 +57,50 @@ public class FlockManager : MonoBehaviour
         {
             if (i+1 == first)
             {
-                Debug.Log("DUPS");
                 i++;
             }
             if (Mathf.Abs(tileWorldLocations[first].x - tileWorldLocations[i].x) < 2 && Mathf.Abs(tileWorldLocations[first].y - tileWorldLocations[i].y) < 2)
             {
-                matches.Add(i);
-                Debug.Log("FOUND MATCH");  
+                matches.Add(i); 
             }
         }
 
         int starter = Random.Range(0, matches.Count-1);
 
-        Debug.Log("MOVEE");
-        WolfManager.transform.position = tileWorldLocations[matches[starter]];
+        manager.transform.position = tileWorldLocations[matches[starter]];
         StartCoroutine(randMovement(5f, matches[starter]));
 
     }
+
+    public void spawnAnimals(float waitTime, int minAdd, int maxAdd)
+    {
+
+        group = new GameObject[groupSize];
+        for (int i = 0; i < groupSize; i++)
+        {
+            float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
+            float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
+            float posZ = 0f;
+            Vector3 pos = new Vector3(posX, posY, posZ);
+            group[i] = Instantiate(prefab, this.transform.position, Quaternion.identity);
+        }
+
+        StartCoroutine(spawn(waitTime, minAdd, maxAdd));
+    }
+
+    public IEnumerator spawn(float waitTime, int minAdd, int maxAdd)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            int groupSize = Random.Range(minAdd, maxAdd);
+            
+            newAnimals = new GameObject[groupSize];
+            for (int i = 0; i < groupSize; i++)
+            {
+                newAnimals[i] = Instantiate(prefab, this.transform.position, Quaternion.identity);
+            }
+        }
+    } 
 }
 

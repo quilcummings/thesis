@@ -12,9 +12,6 @@ public class RabbitFlockManager : MonoBehaviour
     public int colonySize = 10;
     
     public Vector3 limits = new Vector3(1, 1, 1);
-
-    private float randX;
-    private float randY;
     
     void Awake()
     {

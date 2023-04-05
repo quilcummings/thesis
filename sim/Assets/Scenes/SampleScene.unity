@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29156}
   - component: {fileID: 29155}
+  - component: {fileID: 29157}
   m_Layer: 0
   m_Name: RabbitFlockManager
   m_TagString: Untagged
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 060bb5e8c3d824a669153b2ba92ac162, type: 3}
   m_Name: 
@@ -172,6 +173,27 @@ Transform:
   m_Father: {fileID: 241832815}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578d201d0fd64d4a87807bef76c8575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 4135746295649754378, guid: 0eb097bebb22d43e6a09e5029b531388, type: 3}
+  manager: {fileID: 29154}
+  groupSize: 10
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  man: {fileID: 29154}
 --- !u!1 &48033183
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61916555}
   - component: {fileID: 61916556}
+  - component: {fileID: 61916557}
   m_Layer: 0
   m_Name: DeerFlockManager
   m_TagString: Untagged
@@ -295,7 +318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61916554}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ccb4adf0add1ee41af4099a782ba45a, type: 3}
   m_Name: 
@@ -305,6 +328,27 @@ MonoBehaviour:
   deerPrefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
   herdSize: 10
   limits: {x: 1, y: 1, z: 1}
+--- !u!114 &61916557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61916554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4b0e56e51458b4291eb2100ab4995e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
+  manager: {fileID: 61916554}
+  groupSize: 10
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  man: {fileID: 61916554}
 --- !u!1 &238525141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,11 +1290,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d80cbaa3ddf1245ad5dcfbce083efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 1534033000}
-  WolfManager: {fileID: 1163924395}
-  RabbitManager: {fileID: 29154}
-  CoyoteManager: {fileID: 1825552683}
-  DeerManager: {fileID: 61916554}
+  group: []
+  newAnimals: []
+  prefab: {fileID: 0}
+  manager: {fileID: 1163924395}
+  groupSize: 0
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 0}
+  tileWorldLocations: []
 --- !u!4 &544812914
 Transform:
   m_ObjectHideFlags: 0
@@ -3324,6 +3371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1163924397}
   - component: {fileID: 1163924396}
+  - component: {fileID: 1163924398}
   m_Layer: 0
   m_Name: WolfFlockManager
   m_TagString: Untagged
@@ -3338,7 +3386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163924395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416b562bc82d5e54193e04589958c5e5, type: 3}
   m_Name: 
@@ -3363,6 +3411,27 @@ Transform:
   m_Father: {fileID: 241832815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163924398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163924395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cae98d0631446348997d903e4715a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
+  manager: {fileID: 1163924395}
+  groupSize: 5
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  man: {fileID: 1163924395}
 --- !u!1 &1174015763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5947,6 +6016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825552685}
   - component: {fileID: 1825552684}
+  - component: {fileID: 1825552686}
   m_Layer: 0
   m_Name: CoyoteFlockManager
   m_TagString: Untagged
@@ -5961,7 +6031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825552683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0edb311421e04ca79ca60be07175544, type: 3}
   m_Name: 
@@ -5986,6 +6056,27 @@ Transform:
   m_Father: {fileID: 241832815}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825552686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825552683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9833e6f1d33174f8980edaf17bedec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 7275949259770234941, guid: dfa61743199c54a85b427c580957da1f, type: 3}
+  manager: {fileID: 1825552683}
+  groupSize: 5
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  man: {fileID: 1825552683}
 --- !u!1 &1905574569
 GameObject:
   m_ObjectHideFlags: 0

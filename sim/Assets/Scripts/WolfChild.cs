@@ -63,7 +63,6 @@ public class WolfChild : Animal
         flock(0.6f);
         goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
         goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
-
        
     }
 
@@ -73,6 +72,7 @@ public class WolfChild : Animal
         {
             if (hungry)
             {
+                Debug.Log("WOLF EATING");
                 col.gameObject.SetActive(false);
 
                 hungry = false;
@@ -81,7 +81,7 @@ public class WolfChild : Animal
                 StopCoroutine(hunger);
                 StopCoroutine(starvation);
             
-                hunger = StartCoroutine(checkHunger(15f));
+                hunger = StartCoroutine(checkHunger(10f));
             }
         }
 
