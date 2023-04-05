@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class CoyoteFlock : FlockManager
 {
-    public GameObject man;
+    public static CoyoteFlock Instance;
+
+    public int flockID;
+
+    public GameObject CoyoteFlock1;
+    public GameObject CoyoteFlock2;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         groupSize = 5;
-        setup(man);
-        spawnAnimals(120f, 2, 4);
+        if (flockID == 0)
+        {
+            setup(CoyoteFlock1);
+        }
+        else if (flockID == 1)
+        {
+            setup(CoyoteFlock2);
+        }
+        
+        spawnAnimals(120f, 2, 4, flockID);
     }
 }

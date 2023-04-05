@@ -58,10 +58,20 @@ public class CoyoteChild : Animal
         }
         
         flock(0.6f);
-        goalPos.x = CoyoteFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
-        goalPos.y = CoyoteFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
-        
-       
+
+        if (flockID == 0)
+        {
+            //goalPos.x = CoyoteFlock.Instance.transform.position.x + Random.Range(-50f,50f);
+            //goalPos.y = CoyoteFlock.Instance.transform.position.y + Random.Range(-50f,50f);
+            goalPos.x = CoyoteFlock.Instance.CoyoteFlock1.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = CoyoteFlock.Instance.CoyoteFlock1.transform.position.y + Random.Range(-50f,50f);
+        }
+        else if (flockID == 1)
+        {
+            goalPos.x = CoyoteFlock.Instance.CoyoteFlock2.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = CoyoteFlock.Instance.CoyoteFlock2.transform.position.y + Random.Range(-50f,50f);
+        }
+
     }
     
     void OnCollisionEnter2D(Collision2D col)
@@ -71,7 +81,6 @@ public class CoyoteChild : Animal
 
             if (hungry)
             {
-                Debug.Log("COYOTE EATING");
                 col.gameObject.SetActive(false);
 
                 hungry = false;

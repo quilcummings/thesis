@@ -10,13 +10,21 @@ public class FlockManager : MonoBehaviour
     public GameObject[] group;
     public GameObject[] newAnimals;
     public GameObject prefab;
-    public GameObject manager;
+    //public GameObject manager;
     public int groupSize;
     
     public Vector3 limits = new Vector3(1, 1, 1);
 
     public Tilemap tilemap;
     public List<Vector3> tileWorldLocations;
+
+    
+    //public GameObject flock1;
+    //public GameObject flock2;
+    //public GameObject flock1;
+    //public GameObject flock2;
+    //public GameObject flock1;
+    //public GameObject flock2;
 
     void Awake()
     {
@@ -42,11 +50,11 @@ public class FlockManager : MonoBehaviour
         var randInt = Random.Range(0, 131);
         man.transform.position = tileWorldLocations[randInt]; 
 
-        StartCoroutine(randMovement(5f, randInt));
+        StartCoroutine(randMovement(5f, randInt, man));
 
     }
 
-    public IEnumerator randMovement(float waitTime, int first)
+    public IEnumerator randMovement(float waitTime, int first, GameObject manager)
     {
         
         yield return new WaitForSeconds(waitTime);
@@ -68,11 +76,11 @@ public class FlockManager : MonoBehaviour
         int starter = Random.Range(0, matches.Count-1);
 
         manager.transform.position = tileWorldLocations[matches[starter]];
-        StartCoroutine(randMovement(5f, matches[starter]));
+        StartCoroutine(randMovement(5f, matches[starter], manager));
 
     }
 
-    public void spawnAnimals(float waitTime, int minAdd, int maxAdd)
+    public void spawnAnimals(float waitTime, int minAdd, int maxAdd, int ID)
     {
 
         group = new GameObject[groupSize];
@@ -83,6 +91,8 @@ public class FlockManager : MonoBehaviour
             float posZ = 0f;
             Vector3 pos = new Vector3(posX, posY, posZ);
             group[i] = Instantiate(prefab, this.transform.position, Quaternion.identity);
+         
+            group[i].GetComponent<Animal>().flockID = ID;
         }
 
         StartCoroutine(spawn(waitTime, minAdd, maxAdd));

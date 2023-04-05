@@ -188,12 +188,13 @@ MonoBehaviour:
   group: []
   newAnimals: []
   prefab: {fileID: 4135746295649754378, guid: 0eb097bebb22d43e6a09e5029b531388, type: 3}
-  manager: {fileID: 29154}
   groupSize: 10
   limits: {x: 1, y: 1, z: 1}
   tilemap: {fileID: 1534033000}
   tileWorldLocations: []
-  man: {fileID: 29154}
+  flockID: 0
+  RabbitFlock1: {fileID: 29154}
+  RabbitFlock2: {fileID: 2117587624}
 --- !u!1 &48033183
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,12 +271,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48033183}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.804, y: -14.715, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.316, y: -20.925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793693463}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &61916554
@@ -343,12 +344,13 @@ MonoBehaviour:
   group: []
   newAnimals: []
   prefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
-  manager: {fileID: 61916554}
   groupSize: 10
   limits: {x: 1, y: 1, z: 1}
   tilemap: {fileID: 1534033000}
   tileWorldLocations: []
-  man: {fileID: 61916554}
+  flockID: 0
+  DeerFlock1: {fileID: 61916554}
+  DeerFlock2: {fileID: 1315605771}
 --- !u!1 &238525141
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,8 +859,12 @@ Transform:
   - {fileID: 61916555}
   - {fileID: 29156}
   - {fileID: 1825552685}
+  - {fileID: 550777354}
+  - {fileID: 1315605772}
+  - {fileID: 2117587625}
+  - {fileID: 1853052834}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313263717
 GameObject:
@@ -1070,12 +1076,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314542967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.21, y: 0.68, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.33, y: -5.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793693463}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440824728
@@ -1154,12 +1160,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440824728}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.64, y: -1.18, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.76, y: -7.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793693463}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -1293,10 +1299,9 @@ MonoBehaviour:
   group: []
   newAnimals: []
   prefab: {fileID: 0}
-  manager: {fileID: 1163924395}
   groupSize: 0
   limits: {x: 1, y: 1, z: 1}
-  tilemap: {fileID: 0}
+  tilemap: {fileID: 1534033000}
   tileWorldLocations: []
 --- !u!4 &544812914
 Transform:
@@ -1311,7 +1316,117 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &550777353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550777354}
+  - component: {fileID: 550777356}
+  - component: {fileID: 550777355}
+  m_Layer: 0
+  m_Name: WolfFlockManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550777354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550777353}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.8134451, y: 6.1996613, z: 0.39945412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &550777355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550777353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cae98d0631446348997d903e4715a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
+  groupSize: 5
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 1
+  WolfFlock1: {fileID: 1163924395}
+  WolfFlock2: {fileID: 550777353}
+--- !u!114 &550777356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550777353}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416b562bc82d5e54193e04589958c5e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pack: []
+  litter: []
+  wolfPrefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
+  packSize: 5
+  limits: {x: 2, y: 2, z: 1}
+--- !u!1 &793693462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793693463}
+  m_Layer: 0
+  m_Name: Decor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793693463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793693462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.12, y: 6.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1072576623}
+  - {fileID: 1436831072}
+  - {fileID: 440824730}
+  - {fileID: 1813419545}
+  - {fileID: 314542969}
+  - {fileID: 48033185}
+  - {fileID: 1947223765}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907760769
 GameObject:
@@ -1359,7 +1474,7 @@ Transform:
   - {fileID: 1236667749}
   - {fileID: 1534033002}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072576621
 GameObject:
@@ -1437,13 +1552,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072576621}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.32, y: 0.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.440001, y: -5.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 793693463}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095779464
 GameObject:
@@ -3426,12 +3541,13 @@ MonoBehaviour:
   group: []
   newAnimals: []
   prefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
-  manager: {fileID: 1163924395}
   groupSize: 5
   limits: {x: 1, y: 1, z: 1}
   tilemap: {fileID: 1534033000}
   tileWorldLocations: []
-  man: {fileID: 1163924395}
+  flockID: 0
+  WolfFlock1: {fileID: 1163924395}
+  WolfFlock2: {fileID: 550777353}
 --- !u!1 &1174015763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4286,78 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1315605771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315605772}
+  - component: {fileID: 1315605774}
+  - component: {fileID: 1315605773}
+  m_Layer: 0
+  m_Name: DeerFlockManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315605772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315605771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.633445, y: -3.990339, z: 0.46694347}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315605773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315605771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4b0e56e51458b4291eb2100ab4995e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
+  groupSize: 10
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 1
+  DeerFlock1: {fileID: 61916554}
+  DeerFlock2: {fileID: 1315605771}
+--- !u!114 &1315605774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315605771}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccb4adf0add1ee41af4099a782ba45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  herd: []
+  fawns: []
+  deerPrefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
+  herdSize: 10
+  limits: {x: 1, y: 1, z: 1}
 --- !u!1 &1436831070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,13 +4434,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436831070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.29, y: 0.42, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.41, y: -5.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 793693463}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534032999
 GameObject:
@@ -5915,7 +6103,7 @@ RectTransform:
   - {fileID: 1174015764}
   - {fileID: 313263718}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5998,12 +6186,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813419543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.59, y: -1.41, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.71, y: -7.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793693463}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1825552683
@@ -6071,12 +6259,85 @@ MonoBehaviour:
   group: []
   newAnimals: []
   prefab: {fileID: 7275949259770234941, guid: dfa61743199c54a85b427c580957da1f, type: 3}
-  manager: {fileID: 1825552683}
   groupSize: 5
   limits: {x: 1, y: 1, z: 1}
   tilemap: {fileID: 1534033000}
   tileWorldLocations: []
-  man: {fileID: 1825552683}
+  flockID: 0
+  CoyoteFlock1: {fileID: 1825552683}
+  CoyoteFlock2: {fileID: 1853052833}
+--- !u!1 &1853052833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853052834}
+  - component: {fileID: 1853052836}
+  - component: {fileID: 1853052835}
+  m_Layer: 0
+  m_Name: CoyoteFlockManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853052834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853052833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.633445, y: -2.050339, z: 0.1607414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853052835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853052833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9833e6f1d33174f8980edaf17bedec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 7275949259770234941, guid: dfa61743199c54a85b427c580957da1f, type: 3}
+  groupSize: 5
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 1
+  CoyoteFlock1: {fileID: 1825552683}
+  CoyoteFlock2: {fileID: 1853052833}
+--- !u!114 &1853052836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853052833}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0edb311421e04ca79ca60be07175544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pack: []
+  litter: []
+  coyotePrefab: {fileID: 7275949259770234941, guid: dfa61743199c54a85b427c580957da1f, type: 3}
+  packSize: 5
+  limits: {x: 1, y: 1, z: 1}
 --- !u!1 &1905574569
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6404,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947223763
 GameObject:
@@ -6221,12 +6482,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947223763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.73, y: -15.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.3899999, y: -21.55, z: 0}
   m_LocalScale: {x: 1.159, y: 1.2107, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793693463}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051279335
@@ -6364,3 +6625,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051279335}
   m_CullTransparentMesh: 1
+--- !u!1 &2117587624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117587625}
+  - component: {fileID: 2117587627}
+  - component: {fileID: 2117587626}
+  m_Layer: 0
+  m_Name: RabbitFlockManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2117587625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117587624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7865548, y: 0.029661084, z: 0.26200753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2117587626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117587624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578d201d0fd64d4a87807bef76c8575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 4135746295649754378, guid: 0eb097bebb22d43e6a09e5029b531388, type: 3}
+  groupSize: 10
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 1
+  RabbitFlock1: {fileID: 29154}
+  RabbitFlock2: {fileID: 2117587624}
+--- !u!114 &2117587627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117587624}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060bb5e8c3d824a669153b2ba92ac162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colony: []
+  kittens: []
+  rabbitPrefab: {fileID: 4135746295649754378, guid: 0eb097bebb22d43e6a09e5029b531388, type: 3}
+  colonySize: 10
+  limits: {x: 1, y: 1, z: 1}

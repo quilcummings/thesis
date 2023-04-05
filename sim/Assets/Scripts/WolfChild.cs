@@ -50,10 +50,6 @@ public class WolfChild : Animal
         {
             sr.flipX = false;
         }
-        
-        // flock(0.6f);
-        // goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
-        // goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
     
         if (hungry && !dead)
         {
@@ -61,8 +57,18 @@ public class WolfChild : Animal
         }
 
         flock(0.6f);
-        goalPos.x = WolfFlockManager.Instance.transform.position.x + Random.Range(-50f,50f);
-        goalPos.y = WolfFlockManager.Instance.transform.position.y + Random.Range(-50f,50f);
+
+        if (flockID == 0)
+        {
+         
+            goalPos.x = WolfFlock.Instance.WolfFlock1.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = WolfFlock.Instance.WolfFlock1.transform.position.y + Random.Range(-50f,50f);
+        }
+        else if (flockID == 1)
+        {
+            goalPos.x = WolfFlock.Instance.WolfFlock2.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = WolfFlock.Instance.WolfFlock2.transform.position.y + Random.Range(-50f,50f);
+        }
        
     }
 
@@ -72,7 +78,6 @@ public class WolfChild : Animal
         {
             if (hungry)
             {
-                Debug.Log("WOLF EATING");
                 col.gameObject.SetActive(false);
 
                 hungry = false;

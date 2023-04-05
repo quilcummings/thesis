@@ -4,11 +4,29 @@ using UnityEngine;
 
 public class RabbitFlock : FlockManager
 {
-    public GameObject man;
+    public static RabbitFlock Instance;
+
+    public int flockID;
+
+    public GameObject RabbitFlock1;
+    public GameObject RabbitFlock2;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         groupSize = 10;
-        setup(man);
-        spawnAnimals(40f, 6, 8);
+        if (flockID == 0)
+        {
+            setup(RabbitFlock1);
+        }
+        else if (flockID == 1)
+        {
+            setup(RabbitFlock2);
+        }
+        spawnAnimals(40f, 6, 8, flockID);
     }
 }

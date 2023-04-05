@@ -26,8 +26,17 @@ public class RabbitChild : Animal
         }
 
         flock(0.6f);
-        goalPos.x = RabbitFlockManager.Instance.transform.position.x + Random.Range(-100f,100f);
-        goalPos.y = RabbitFlockManager.Instance.transform.position.y + Random.Range(-100f,100f);
+
+        if (flockID == 0)
+        {
+            goalPos.x = RabbitFlock.Instance.RabbitFlock1.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = RabbitFlock.Instance.RabbitFlock1.transform.position.y + Random.Range(-50f,50f);
+        }
+        else if (flockID == 1)
+        {
+            goalPos.x = RabbitFlock.Instance.RabbitFlock2.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = RabbitFlock.Instance.RabbitFlock2.transform.position.y + Random.Range(-50f,50f);
+        }
     }
     
     void OnCollisionEnter2D(Collision2D col)

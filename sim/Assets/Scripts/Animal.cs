@@ -16,6 +16,11 @@ public class Animal : MonoBehaviour
     public bool death = false;
     public bool dead = false;
     public bool check = true;
+
+    public int flockID;
+
+    //public GameObject flock1;
+    //public GameObject flock2;
     
 
     public GameObject[] prey;
@@ -61,19 +66,7 @@ public class Animal : MonoBehaviour
             {
                 if(Vector3.Distance(transform.position, go.transform.position) < 3f && hungry)
                 {
-                    //if (go.transform.position.x > transform.position.x)
-                    //{
-                    //    sr.flipX = false;
-                    //}
-                    //else
-                    //{
-                    //    sr.flipX = true;
-                    //}
-
-                    //float step = .1f * Time.deltaTime;
-                    //transform.position = Vector3.MoveTowards(transform.position, go.transform.position, step);
-                    
-                    
+    
                     location = this.transform.position;
                     velocity = rb.velocity;
 
@@ -94,10 +87,8 @@ public class Animal : MonoBehaviour
 
     public IEnumerator checkHunger(float waitTime)
     {
-        Debug.Log("Checking Hunger");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
-        Debug.Log("Hungry");
     }
 
     public IEnumerator checkStarvation(float waitTime)

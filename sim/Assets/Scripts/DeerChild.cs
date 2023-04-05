@@ -25,8 +25,17 @@ public class DeerChild : Animal
         }
 
         flock(0.4f);
-        goalPos.x = DeerFlockManager.Instance.transform.position.x + Random.Range(-200f,200f);
-        goalPos.y = DeerFlockManager.Instance.transform.position.y + Random.Range(-200f,200f);
+
+        if (flockID == 0)
+        {
+            goalPos.x = DeerFlock.Instance.DeerFlock1.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = DeerFlock.Instance.DeerFlock1.transform.position.y + Random.Range(-50f,50f);
+        }
+        else if (flockID == 1)
+        {
+            goalPos.x = DeerFlock.Instance.DeerFlock2.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-50f,50f);
+        }
 
         // foreach(GameObject go in predator)
         // {

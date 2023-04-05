@@ -131,6 +131,9 @@ MonoBehaviour:
   death: 0
   dead: 0
   check: 1
+  flockID: 0
+  flock1: {fileID: 7805631175219820697, guid: dd9fb9078d9e23841a0c62873734ec63, type: 3}
+  flock2: {fileID: 4156987693476645289, guid: 806bf1758fb5b6045988b3f36e43c77d, type: 3}
   prey: []
   predator: []
 --- !u!50 &3433682973410787086
