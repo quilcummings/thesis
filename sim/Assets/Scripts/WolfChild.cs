@@ -76,6 +76,11 @@ public class WolfChild : Animal
     {
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
         {
+            if (!hungry)
+            {  
+                Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+            }
             if (hungry)
             {
                 col.gameObject.SetActive(false);
