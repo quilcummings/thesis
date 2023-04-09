@@ -351,6 +351,60 @@ MonoBehaviour:
   flockID: 0
   DeerFlock1: {fileID: 61916554}
   DeerFlock2: {fileID: 1315605771}
+--- !u!1 &163475758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163475759}
+  - component: {fileID: 163475760}
+  m_Layer: 0
+  m_Name: MountainLionFlockManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &163475759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163475758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163475760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163475758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b5904049de444398aab0a18fe38e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 8386072904685042341, guid: a377324085b72e4409bd33967a9fd7f1, type: 3}
+  groupSize: 2
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 0
+  MountainLionFlock1: {fileID: 163475758}
+  MountainLionFlock2: {fileID: 1066980189}
 --- !u!1 &238525141
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,10 +913,12 @@ Transform:
   - {fileID: 61916555}
   - {fileID: 29156}
   - {fileID: 1825552685}
+  - {fileID: 163475759}
   - {fileID: 550777354}
   - {fileID: 1315605772}
   - {fileID: 2117587625}
   - {fileID: 1853052834}
+  - {fileID: 1066980190}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1327,7 +1383,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 550777354}
-  - component: {fileID: 550777356}
   - component: {fileID: 550777355}
   m_Layer: 0
   m_Name: WolfFlockManager2
@@ -1349,7 +1404,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 241832815}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &550777355
 MonoBehaviour:
@@ -1373,23 +1428,6 @@ MonoBehaviour:
   flockID: 1
   WolfFlock1: {fileID: 1163924395}
   WolfFlock2: {fileID: 550777353}
---- !u!114 &550777356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550777353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416b562bc82d5e54193e04589958c5e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pack: []
-  litter: []
-  wolfPrefab: {fileID: 1477551714035997370, guid: 6bb33657bafed504594e8398c49f2502, type: 3}
-  packSize: 5
-  limits: {x: 2, y: 2, z: 1}
 --- !u!1 &793693462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1514,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1066980189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066980190}
+  - component: {fileID: 1066980191}
+  m_Layer: 0
+  m_Name: MountainLionFlockManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066980190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066980189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241832815}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1066980191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066980189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b5904049de444398aab0a18fe38e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: []
+  newAnimals: []
+  prefab: {fileID: 8386072904685042341, guid: a377324085b72e4409bd33967a9fd7f1, type: 3}
+  groupSize: 2
+  limits: {x: 1, y: 1, z: 1}
+  tilemap: {fileID: 1534033000}
+  tileWorldLocations: []
+  flockID: 1
+  MountainLionFlock1: {fileID: 1066980189}
+  MountainLionFlock2: {fileID: 1066980189}
 --- !u!1 &1072576621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4317,7 +4409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 241832815}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1315605773
 MonoBehaviour:
@@ -6297,7 +6389,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 241832815}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1853052835
 MonoBehaviour:
@@ -6656,7 +6748,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 241832815}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2117587626
 MonoBehaviour:

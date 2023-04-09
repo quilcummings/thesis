@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
-public class CoyoteChild : Animal
+public class MountainLionChild : Animal
 {
     Coroutine hunger;
     Coroutine starvation;
@@ -16,9 +15,9 @@ public class CoyoteChild : Animal
     {
         GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
         GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
-        GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
+        GameObject[] coyotes = GameObject.FindGameObjectsWithTag("Coyote");
         combo = deer.Concat(rabbits).ToArray();
-        prey = combo.Concat(deadWolves).ToArray();
+        prey = combo.Concat(coyotes).ToArray();
 
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
@@ -49,32 +48,28 @@ public class CoyoteChild : Animal
         }
         
         if (hungry)
-        {
-            GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
-            prey = combo.Concat(deadWolves).ToArray();
-            
-            attack(0.6f);
-            
+        {           
+            attack(0.6f);   
         }
         
         flock(0.6f);
 
         if (flockID == 0)
         {
-            goalPos.x = CoyoteFlock.Instance.CoyoteFlock1.transform.position.x + Random.Range(-50f,50f);
-            goalPos.y = CoyoteFlock.Instance.CoyoteFlock1.transform.position.y + Random.Range(-50f,50f);
+            goalPos.x = MountainLionFlock.Instance.MountainLionFlock1.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = MountainLionFlock.Instance.MountainLionFlock1.transform.position.y + Random.Range(-50f,50f);
         }
         else if (flockID == 1)
         {
-            goalPos.x = CoyoteFlock.Instance.CoyoteFlock2.transform.position.x + Random.Range(-50f,50f);
-            goalPos.y = CoyoteFlock.Instance.CoyoteFlock2.transform.position.y + Random.Range(-50f,50f);
+            goalPos.x = MountainLionFlock.Instance.MountainLionFlock2.transform.position.x + Random.Range(-50f,50f);
+            goalPos.y = MountainLionFlock.Instance.MountainLionFlock2.transform.position.y + Random.Range(-50f,50f);
         }
 
     }
     
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
+        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Coyote")
         {
             if (!hungry)
             {  
@@ -92,10 +87,7 @@ public class CoyoteChild : Animal
                 StopCoroutine(starvation);
             
                 hunger = StartCoroutine(checkHunger(15f));
-            }
-            
-           
+            } 
         }
     }
 }
-

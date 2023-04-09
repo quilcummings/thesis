@@ -9,6 +9,7 @@ TagManager:
   - Rabbit
   - Coyote
   - Carrion
+  - MountainLion
   layers:
   - Default
   - TransparentFX
