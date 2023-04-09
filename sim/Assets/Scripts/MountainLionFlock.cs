@@ -22,11 +22,13 @@ public class MountainLionFlock : FlockManager
         if (flockID == 0)
         {
             setup(MountainLionFlock1);
+            spawnAnimals(60f, 1, 2, flockID, MountainLionFlock1);
         }
         else if (flockID == 1)
         {
             setup(MountainLionFlock2);
+            spawnAnimals(60f, 1, 2, flockID, MountainLionFlock2);
         }
-        spawnAnimals(60f, 1, 2, flockID);
+        
     }
 }

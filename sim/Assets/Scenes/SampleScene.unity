@@ -1566,7 +1566,7 @@ MonoBehaviour:
   tilemap: {fileID: 1534033000}
   tileWorldLocations: []
   flockID: 1
-  MountainLionFlock1: {fileID: 1066980189}
+  MountainLionFlock1: {fileID: 163475758}
   MountainLionFlock2: {fileID: 1066980189}
 --- !u!1 &1072576621
 GameObject:
@@ -4387,7 +4387,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315605772}
-  - component: {fileID: 1315605774}
   - component: {fileID: 1315605773}
   m_Layer: 0
   m_Name: DeerFlockManager2
@@ -4433,23 +4432,6 @@ MonoBehaviour:
   flockID: 1
   DeerFlock1: {fileID: 61916554}
   DeerFlock2: {fileID: 1315605771}
---- !u!114 &1315605774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315605771}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ccb4adf0add1ee41af4099a782ba45a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  herd: []
-  fawns: []
-  deerPrefab: {fileID: 4027978007177911443, guid: 33bdf6d4089c1864fa602a896a326a45, type: 3}
-  herdSize: 10
-  limits: {x: 1, y: 1, z: 1}
 --- !u!1 &1436831070
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,12 +22,14 @@ public class CoyoteFlock : FlockManager
         if (flockID == 0)
         {
             setup(CoyoteFlock1);
+            spawnAnimals(120f, 2, 4, flockID, CoyoteFlock1);
         }
         else if (flockID == 1)
         {
             setup(CoyoteFlock2);
+            spawnAnimals(120f, 2, 4, flockID, CoyoteFlock2);
         }
         
-        spawnAnimals(120f, 2, 4, flockID);
+        
     }
 }

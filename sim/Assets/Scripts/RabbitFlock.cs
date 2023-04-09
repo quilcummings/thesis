@@ -22,11 +22,13 @@ public class RabbitFlock : FlockManager
         if (flockID == 0)
         {
             setup(RabbitFlock1);
+            spawnAnimals(40f, 6, 8, flockID, RabbitFlock1);
         }
         else if (flockID == 1)
         {
             setup(RabbitFlock2);
+            spawnAnimals(40f, 6, 8, flockID, RabbitFlock2);
         }
-        spawnAnimals(40f, 6, 8, flockID);
+        
     }
 }

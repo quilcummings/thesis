@@ -46,15 +46,4 @@ public class DeerChild : Animal
         //     }
         // }
     }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Wolf" || col.gameObject.tag == "Coyote")
-        {
-            //gameObject.SetActive(false);
-
-
-            //Destroy(gameObject);
-        }
-    }
 }

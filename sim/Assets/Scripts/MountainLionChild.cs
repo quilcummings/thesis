@@ -10,6 +10,9 @@ public class MountainLionChild : Animal
     Coroutine dying;
 
     private GameObject[] combo;
+
+    public GameObject one;
+    public GameObject two;
     
     void Start()
     {
@@ -78,6 +81,9 @@ public class MountainLionChild : Animal
             }
             if (hungry)
             {
+                Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+
                 col.gameObject.SetActive(false);
 
                 hungry = false;

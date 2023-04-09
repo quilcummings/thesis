@@ -22,11 +22,13 @@ public class WolfFlock : FlockManager
         if (flockID == 0)
         {
             setup(WolfFlock1);
+            spawnAnimals(60f, 3, 5, flockID, WolfFlock1);
         }
         else if (flockID == 1)
         {
             setup(WolfFlock2);
+            spawnAnimals(60f, 3, 5, flockID, WolfFlock2);
         }
-        spawnAnimals(60f, 3, 5, flockID);
+        
     }
 }

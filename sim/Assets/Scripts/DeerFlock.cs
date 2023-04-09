@@ -23,11 +23,13 @@ public class DeerFlock : FlockManager
         if (flockID == 0)
         {
             setup(DeerFlock1);
+            spawnAnimals(60f, 4, 6, flockID, DeerFlock1);
         }
         else if (flockID == 1)
         {
             setup(DeerFlock2);
+            spawnAnimals(60f, 4, 6, flockID, DeerFlock2);
         }
-        spawnAnimals(60f, 4, 6, flockID);
+        
     }
 }

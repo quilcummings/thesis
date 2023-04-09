@@ -74,8 +74,16 @@ public class CoyoteChild : Animal
     
     void OnCollisionEnter2D(Collision2D col)
     {
+        
+        if (col.gameObject.tag == "MountainLion")
+        {
+            Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+        }
+
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
         {
+
             if (!hungry)
             {  
                 Collider2D coll = col.gameObject.GetComponent<Collider2D>();
@@ -83,6 +91,9 @@ public class CoyoteChild : Animal
             }
             if (hungry)
             {
+                Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+
                 col.gameObject.SetActive(false);
 
                 hungry = false;
