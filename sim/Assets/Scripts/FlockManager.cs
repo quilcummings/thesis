@@ -63,17 +63,16 @@ public class FlockManager : MonoBehaviour
         
         for(int i = 0; i < tileWorldLocations.Count; i++)
         {
-            if (i+1 == first)
-            {
-                i++;
-            }
-            if (Mathf.Abs(tileWorldLocations[first].x - tileWorldLocations[i].x) < 2 && Mathf.Abs(tileWorldLocations[first].y - tileWorldLocations[i].y) < 2)
+           
+            if (i != first && (Mathf.Abs(tileWorldLocations[first].x - tileWorldLocations[i].x) < 2 && Mathf.Abs(tileWorldLocations[first].y - tileWorldLocations[i].y) < 2))
             {
                 matches.Add(i); 
             }
         }
 
-        int starter = Random.Range(0, matches.Count-1);
+        int starter = Random.Range(0, matches.Count);
+
+        //Debug.Log(prefab.tag + "- starter num: " + starter.ToString() + " tile ID: " + matches[starter].ToString() + " matches count: " + matches.Count.ToString());
 
         manager.transform.position = tileWorldLocations[matches[starter]];
         StartCoroutine(randMovement(5f, matches[starter], manager));
@@ -108,7 +107,8 @@ public class FlockManager : MonoBehaviour
             newAnimals = new GameObject[groupSize];
             for (int i = 0; i < groupSize; i++)
             {
-                Debug.Log(prefab.tag + " " + ID.ToString() + " " + man.transform.position);
+                //Debug.Log(prefab.tag + " " + ID.ToString() + " " + man.transform.position);
+
                 newAnimals[i] = Instantiate(prefab, man.transform.position, Quaternion.identity);
                 newAnimals[i].GetComponent<Animal>().flockID = ID;
             }
