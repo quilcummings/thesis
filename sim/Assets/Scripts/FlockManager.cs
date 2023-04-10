@@ -85,11 +85,11 @@ public class FlockManager : MonoBehaviour
         group = new GameObject[groupSize];
         for (int i = 0; i < groupSize; i++)
         {
-            float posX = this.transform.position.x + Random.Range(-limits.x, limits.x);
-            float posY = this.transform.position.y + Random.Range(-limits.y, limits.y);
+            float posX = man.transform.position.x + Random.Range(-limits.x, limits.x);
+            float posY = man.transform.position.y + Random.Range(-limits.y, limits.y);
             float posZ = 0f;
             Vector3 pos = new Vector3(posX, posY, posZ);
-            group[i] = Instantiate(prefab, man.transform.position, Quaternion.identity);
+            group[i] = Instantiate(prefab, pos, Quaternion.identity);
          
             group[i].GetComponent<Animal>().flockID = ID;
         }
