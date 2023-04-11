@@ -75,7 +75,7 @@ public class WolfChild : Animal
     void OnCollisionEnter2D(Collision2D col)
     {
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
-        if (col.gameObject.tag == "Carrion")
+        if (gameObject.tag == "Carrion" && col.gameObject.tag != "Coyote")
         {
             Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
         }
