@@ -73,12 +73,21 @@ public class MountainLionChild : Animal
     void OnCollisionEnter2D(Collision2D col)
     {
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+        if (!hungry && coll.gameObject.tag == "Mountain Lion")
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+        }
+        else 
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+        }
+
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Coyote")
         {
-            if (!hungry)
-            {  
-                Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
-            }
+            // if (!hungry)
+            // {  
+            //     Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+            // }
             if (hungry)
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);

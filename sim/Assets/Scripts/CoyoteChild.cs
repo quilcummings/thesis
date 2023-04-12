@@ -82,13 +82,22 @@ public class CoyoteChild : Animal
         // }
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
 
+        if (!hungry && coll.gameObject.tag == "Coyote")
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+        }
+
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
         {
 
-            if (!hungry)
-            {        
-                Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
-            }
+            // if (!hungry)
+            // {        
+            //     Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+            // }
             if (hungry)
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
