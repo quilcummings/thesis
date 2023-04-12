@@ -90,8 +90,7 @@ public class WolfChild : Animal
             {  
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
             }
-
-            if (hungry)
+            else
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
 
