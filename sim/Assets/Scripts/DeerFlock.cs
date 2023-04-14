@@ -22,14 +22,26 @@ public class DeerFlock : FlockManager
         groupSize = 10;
         if (flockID == 0)
         {
-            setup(DeerFlock1);
-            spawnAnimals(60f, 4, 6, flockID, DeerFlock1);
+            //setup(DeerFlock1);
+            //spawnAnimals(60f, 4, 6, flockID, DeerFlock1);
         }
         else if (flockID == 1)
         {
-            setup(DeerFlock2);
-            spawnAnimals(60f, 4, 6, flockID, DeerFlock2);
+            //setup(DeerFlock2);
+            //spawnAnimals(60f, 4, 6, flockID, DeerFlock2);
         }
         
+    }
+
+    public void groupOne(int index)
+    {
+        setup(DeerFlock1, index);
+        spawnAnimals(60f, 4, 6, 0, DeerFlock1);
+    }
+
+    public void groupTwo(int index)
+    {
+        setup(DeerFlock2, index);
+        spawnAnimals(60f, 4, 6, 1, DeerFlock2);
     }
 }

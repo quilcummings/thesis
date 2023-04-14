@@ -21,14 +21,26 @@ public class RabbitFlock : FlockManager
         groupSize = 10;
         if (flockID == 0)
         {
-            setup(RabbitFlock1);
-            spawnAnimals(40f, 6, 8, flockID, RabbitFlock1);
+            //setup(RabbitFlock1);
+            //spawnAnimals(40f, 6, 8, flockID, RabbitFlock1);
         }
         else if (flockID == 1)
         {
-            setup(RabbitFlock2);
-            spawnAnimals(40f, 6, 8, flockID, RabbitFlock2);
+            //setup(RabbitFlock2);
+            //spawnAnimals(40f, 6, 8, flockID, RabbitFlock2);
         }
         
+    }
+
+    public void groupOne(int index)
+    {
+        setup(RabbitFlock1, index);
+        spawnAnimals(40f, 5, 7, 0, RabbitFlock1);
+    }
+
+    public void groupTwo(int index)
+    {
+        setup(RabbitFlock2, index);
+        spawnAnimals(40f, 5, 7, 1, RabbitFlock2);
     }
 }

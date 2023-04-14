@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class Button : MonoBehaviour
 {
     public void OnButtonPress() {
+        SceneManager.LoadScene("UI", LoadSceneMode.Single);
+        
+    }
 
-        Debug.Log("PRESSED");
+    public void LoadGame() {
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
         
     }

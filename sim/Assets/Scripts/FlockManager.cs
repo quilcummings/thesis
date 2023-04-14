@@ -18,21 +18,14 @@ public class FlockManager : MonoBehaviour
     public Tilemap tilemap;
     public List<Vector3> tileWorldLocations;
 
-    
-    //public GameObject flock1;
-    //public GameObject flock2;
-    //public GameObject flock1;
-    //public GameObject flock2;
-    //public GameObject flock1;
-    //public GameObject flock2;
 
     void Awake()
     {
         Instance = this;
     }
 
-    public void setup(GameObject man)
-    {
+    public void setup(GameObject man, int index)
+    { 
         tileWorldLocations = new List<Vector3>();
 
         foreach (var pos in tilemap.cellBounds.allPositionsWithin)
@@ -48,10 +41,12 @@ public class FlockManager : MonoBehaviour
         }
 
         var randInt = Random.Range(0, 131);
-        man.transform.position = tileWorldLocations[randInt]; 
 
-        StartCoroutine(randMovement(5f, randInt, man));
+        //man.transform.position = tileWorldLocations[randInt]; 
+        //StartCoroutine(randMovement(5f, randInt, man));
 
+        man.transform.position = tileWorldLocations[index]; 
+        StartCoroutine(randMovement(5f, index, man));
     }
 
     public IEnumerator randMovement(float waitTime, int first, GameObject manager)

@@ -21,14 +21,26 @@ public class MountainLionFlock : FlockManager
         groupSize = 2;
         if (flockID == 0)
         {
-            setup(MountainLionFlock1);
-            spawnAnimals(60f, 1, 2, flockID, MountainLionFlock1);
+            //setup(MountainLionFlock1);
+            //spawnAnimals(60f, 1, 2, flockID, MountainLionFlock1);
         }
         else if (flockID == 1)
         {
-            setup(MountainLionFlock2);
-            spawnAnimals(60f, 1, 2, flockID, MountainLionFlock2);
+            //setup(MountainLionFlock2);
+            //spawnAnimals(60f, 1, 2, flockID, MountainLionFlock2);
         }
         
+    }
+
+    public void groupOne(int index)
+    {
+        setup(MountainLionFlock1, index);
+        spawnAnimals(60f, 1, 2, 0, MountainLionFlock1);
+    }
+
+    public void groupTwo(int index)
+    {
+        setup(MountainLionFlock2, index);
+        spawnAnimals(60f, 1, 2, 1, MountainLionFlock2);
     }
 }

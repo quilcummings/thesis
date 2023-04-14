@@ -19,16 +19,29 @@ public class WolfFlock : FlockManager
     void Start()
     {
         groupSize = 5;
+
         if (flockID == 0)
         {
-            setup(WolfFlock1);
-            spawnAnimals(60f, 3, 5, flockID, WolfFlock1);
+            // setup(WolfFlock1, 60);
+            // spawnAnimals(60f, 3, 5, flockID, WolfFlock1);
         }
         else if (flockID == 1)
         {
-            setup(WolfFlock2);
-            spawnAnimals(60f, 3, 5, flockID, WolfFlock2);
+            // setup(WolfFlock2, 41);
+            // spawnAnimals(60f, 3, 5, flockID, WolfFlock2);
         }
         
+    }
+
+    public void packOne(int index)
+    {
+        setup(WolfFlock1, index);
+        spawnAnimals(60f, 3, 5, 0, WolfFlock1);
+    }
+
+    public void packTwo(int index)
+    {
+        setup(WolfFlock2, index);
+        spawnAnimals(60f, 3, 5, 1, WolfFlock2);
     }
 }

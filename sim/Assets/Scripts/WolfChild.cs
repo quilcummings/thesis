@@ -26,6 +26,8 @@ public class WolfChild : Animal
     
     void Update()
     {
+        
+
         if (death)
         {
             animator.SetBool("dead", true);
@@ -53,6 +55,10 @@ public class WolfChild : Animal
     
         if (hungry && !dead)
         {
+            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");;
+            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");;
+            prey = deer.Concat(rabbits).ToArray();
+            
             attack(.6f);
         }
 
@@ -75,7 +81,7 @@ public class WolfChild : Animal
     void OnCollisionEnter2D(Collision2D col)
     {
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
-        if (gameObject.tag == "Carrion" && col.gameObject.tag != "Coyote" || col.gameObject.tag == "Wolf" && !hungry)
+        if (col.gameObject.tag == "Wolf" || col.gameObject.tag == "Carrion")
         {
             Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
         }
@@ -86,10 +92,6 @@ public class WolfChild : Animal
 
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
         {
-            // if (!hungry)
-            // {  
-            //     Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
-            // }
             if (hungry)
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);

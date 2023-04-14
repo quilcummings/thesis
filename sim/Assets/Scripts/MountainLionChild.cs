@@ -16,12 +16,6 @@ public class MountainLionChild : Animal
     
     void Start()
     {
-        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
-        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
-        GameObject[] coyotes = GameObject.FindGameObjectsWithTag("Coyote");
-        combo = deer.Concat(rabbits).ToArray();
-        prey = combo.Concat(coyotes).ToArray();
-
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
@@ -51,7 +45,13 @@ public class MountainLionChild : Animal
         }
         
         if (hungry)
-        {           
+        {
+            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
+            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
+            GameObject[] coyotes = GameObject.FindGameObjectsWithTag("Coyote");
+            combo = deer.Concat(rabbits).ToArray();
+            prey = combo.Concat(coyotes).ToArray();
+
             attack(0.6f);   
         }
         
@@ -73,7 +73,7 @@ public class MountainLionChild : Animal
     void OnCollisionEnter2D(Collision2D col)
     {
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
-        if (!hungry && coll.gameObject.tag == "Mountain Lion")
+        if (coll.gameObject.tag == "Mountain Lion")
         {
             Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
         }

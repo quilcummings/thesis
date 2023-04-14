@@ -14,11 +14,7 @@ public class CoyoteChild : Animal
     
     void Start()
     {
-        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
-        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
-        GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
-        combo = deer.Concat(rabbits).ToArray();
-        prey = combo.Concat(deadWolves).ToArray();
+        
 
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
@@ -50,7 +46,10 @@ public class CoyoteChild : Animal
         
         if (hungry)
         {
+            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
+            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
             GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
+            combo = deer.Concat(rabbits).ToArray();
             prey = combo.Concat(deadWolves).ToArray();
             
             attack(0.6f);
@@ -74,15 +73,9 @@ public class CoyoteChild : Animal
     
     void OnCollisionEnter2D(Collision2D col)
     {
-        
-        // if (col.gameObject.tag == "MountainLion")
-        // {
-        //     Collider2D coll = col.gameObject.GetComponent<Collider2D>();
-        //     Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
-        // }
         Collider2D coll = col.gameObject.GetComponent<Collider2D>();
 
-        if (!hungry && coll.gameObject.tag == "Coyote")
+        if (coll.gameObject.tag == "Coyote")
         {
             Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
         }
