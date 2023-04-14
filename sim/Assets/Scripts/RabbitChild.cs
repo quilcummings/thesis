@@ -41,10 +41,14 @@ public class RabbitChild : Animal
     
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Wolf" || col.gameObject.tag == "Coyote")
+        Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
         {
-            //gameObject.SetActive(false);
-            //Destroy(gameObject);
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
         }
     }
 }

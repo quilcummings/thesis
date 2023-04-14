@@ -24,6 +24,9 @@ public class UIFlock : MonoBehaviour
 
     public bool done = false;
 
+    public AudioSource aud;
+    public AudioClip click;
+
 
     void Start ()
     {
@@ -73,22 +76,27 @@ public class UIFlock : MonoBehaviour
         else if (UIManager.wolfFlockNum != 0 && !wolvesDone)
         {
             wolves();
+            aud.PlayOneShot(click);
         }
         else if (UIManager.deerFlockNum != 0 && !deerDone && wolvesDone)
         {
             deer();
+            aud.PlayOneShot(click);
         }
         else if (UIManager.coyoteFlockNum != 0 && !coyotesDone && deerDone)
         {
             coyotes();
+            aud.PlayOneShot(click);
         }
         else if (UIManager.rabbitFlockNum != 0 && !rabbitsDone && coyotesDone)
         {
             rabbits();
+            aud.PlayOneShot(click);
         }
         else if (UIManager.mountainLionFlockNum != 0 && !mountainLionsDone && rabbitsDone)
         {
             mountainLions();
+            aud.PlayOneShot(click);
         }
         else
         {

@@ -24,17 +24,17 @@ public class DeerChild : Animal
             sr.flipX = false;
         }
 
-        flock(0.4f);
+        flock(0.6f);
 
         if (flockID == 0)
         {
-            goalPos.x = DeerFlock.Instance.DeerFlock1.transform.position.x + Random.Range(-50f,50f);
-            goalPos.y = DeerFlock.Instance.DeerFlock1.transform.position.y + Random.Range(-50f,50f);
+            goalPos.x = DeerFlock.Instance.DeerFlock1.transform.position.x + Random.Range(-75f,75f);
+            goalPos.y = DeerFlock.Instance.DeerFlock1.transform.position.y + Random.Range(-75f,75f);
         }
         else if (flockID == 1)
         {
-            goalPos.x = DeerFlock.Instance.DeerFlock2.transform.position.x + Random.Range(-50f,50f);
-            goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-50f,50f);
+            goalPos.x = DeerFlock.Instance.DeerFlock2.transform.position.x + Random.Range(-75f,75f);
+            goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-75f,75f);
         }
 
         // foreach(GameObject go in predator)
@@ -45,5 +45,18 @@ public class DeerChild : Animal
         //         transform.position = Vector2.MoveTowards(transform.position, go.transform.position, step*-1);
         //     }
         // }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Collider2D coll = col.gameObject.GetComponent<Collider2D>();
+        if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit")
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
+        }
     }
 }
