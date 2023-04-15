@@ -1,30 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DeerChild : Animal
 {
     
+    private GameObject[] combo;  
+
     void Start()
     {
-        predator = GameObject.FindGameObjectsWithTag("Wolf");
-
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
     }
 
     void Update()
     {
-        if (velocity.x < 0 && sr != null)
+        // if (velocity.x < 0 && sr != null)
+        // {
+        //     sr.flipX = true;
+        // }
+        // else
+        // {
+        //     sr.flipX = false;
+        // }
+
+        queueFlipCount();
+
+        if (Time.frameCount % smooth == 0)
         {
-            sr.flipX = true;
-        }
-        else
-        {
-            sr.flipX = false;
+            checkRot();
+
+            if (average < 0)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
         }
 
+        fillPredator(UIManager.wolfFlockNum, "Wolf");
+        fillPredator(UIManager.coyoteFlockNum, "Wolf");
+        fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
+
+
         flock(0.6f);
+        flee(0.1f);
 
         if (flockID == 0)
         {
@@ -37,14 +60,8 @@ public class DeerChild : Animal
             goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-75f,75f);
         }
 
-        // foreach(GameObject go in predator)
-        // {
-        //     if(Vector3.Distance(transform.position, go.transform.position) < 2f)
-        //     {
-        //         float step = .1f * Time.deltaTime;
-        //         transform.position = Vector2.MoveTowards(transform.position, go.transform.position, step*-1);
-        //     }
-        // }
+        
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)

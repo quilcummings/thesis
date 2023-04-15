@@ -713,6 +713,7 @@ MonoBehaviour:
   hasPlayed: 0
   aud: {fileID: 1283063090}
   tick: {fileID: 8300000, guid: b4255d02f0c65b44fa20c52fcad2119f, type: 3}
+  click: {fileID: 8300000, guid: e5477b4d7a0702e4cb5db7fe308b4094, type: 3}
 --- !u!4 &597123017
 Transform:
   m_ObjectHideFlags: 0

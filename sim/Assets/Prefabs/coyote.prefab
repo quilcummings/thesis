@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 833946998, guid: 5cff3269bb7f040e282bfea948328164, type: 3}
-  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  m_Color: {r: 0.38679248, g: 0.34788516, b: 0.3302332, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,8 +132,6 @@ MonoBehaviour:
   dead: 0
   check: 1
   flockID: 0
-  flock1: {fileID: 4108114587035393870, guid: 992068ad6edaa44429185472224e5744, type: 3}
-  flock2: {fileID: 5850786326941535648, guid: 9d2097a66b48bf14baf5ce10f9203c75, type: 3}
   prey: []
   predator: []
 --- !u!50 &2313291776127737867

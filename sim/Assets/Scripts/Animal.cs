@@ -19,12 +19,24 @@ public class Animal : MonoBehaviour
 
     public int flockID;
 
+    public bool wolfAt = false;
+
+    public float average;
+
     //public GameObject flock1;
     //public GameObject flock2;
     
+    //public GameObject[] prey;
+    //public GameObject[] predator;
 
-    public GameObject[] prey;
-    public GameObject[] predator;
+    public List<GameObject> predator = new List<GameObject>();
+    public List<GameObject> prey = new List<GameObject>();
+
+    public GameObject[] remaining;
+
+    Queue<int> flipCount = new Queue<int>();
+    public int smooth = 200;
+
 
     void Start()
     {
@@ -66,7 +78,11 @@ public class Animal : MonoBehaviour
             {
                 if(Vector3.Distance(transform.position, go.transform.position) < 3f && hungry)
                 {
-    
+                    if (clamp == .5f)
+                    {
+                        StartCoroutine(wolfAttack());
+                    }
+                
                     location = this.transform.position;
                     velocity = rb.velocity;
 
@@ -85,9 +101,89 @@ public class Animal : MonoBehaviour
         }
     }
 
+    public void flee(float clamp)
+    {
+        foreach(GameObject go in predator)
+        {
+            if (go.activeSelf)
+            {
+                if(Vector3.Distance(transform.position, go.transform.position) < 2f)
+                {
+                    location = this.transform.position;
+                    velocity = rb.velocity;
+
+                    Vector2 gl;
+        
+                    gl = seek(go.transform.position);
+                    currentForce = gl * -1;
+                    currentForce = currentForce.normalized;
+
+                    applyForce(currentForce);
+
+                    rb.velocity = new Vector2(Mathf.Clamp(velocity.x, -1*clamp, clamp), Mathf.Clamp(velocity.y, -1*clamp, clamp));
+
+                }
+            }
+        }
+    }
+
+    public void queueFlipCount() {
+
+        if (velocity.x < 0)
+        {
+            flipCount.Enqueue(-1);
+        }
+        else
+        {
+            flipCount.Enqueue(1);
+        }
+        
+        if (flipCount.Count > smooth)
+        {
+            flipCount.Dequeue();
+        }
+
+    }
+
+    public void checkRot() {
+ 
+        int total = 0;
+
+        foreach(var dir in flipCount)
+        {
+            total+=dir;
+        }
+
+        average = total/(float)smooth;
+    }
+
+    public void fillPredator(int num, string tag) {
+        if (num!=0)
+        {
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag(tag)) 
+            {
+                if (!predator.Contains(obj))
+                {
+                    predator.Add(obj);
+                }
+            }
+        }
+    }
+    public void fillPrey(int num, string tag) {
+        if (num!=0)
+        {
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag(tag)) 
+            {
+                if (!prey.Contains(obj))
+                {
+                    prey.Add(obj);
+                }
+            }
+        }
+    }
+        
     public IEnumerator checkHunger(float waitTime)
     {
-        Debug.Log("Checking Hunger");
         yield return new WaitForSeconds(waitTime);
         hungry = true;
     }
@@ -111,4 +207,27 @@ public class Animal : MonoBehaviour
         yield return new WaitForSeconds(5);
         dead = true;
     }
+
+    public IEnumerator wolfAttack()
+    {
+        yield return new WaitForSeconds(1f);
+        wolfAt = true;
+    }
+
+    public IEnumerator destroy(string tag, GameObject toDestroy)
+    {
+        Debug.Log("Starting destruction countdown");
+        yield return new WaitForSeconds(15f);
+        remaining = GameObject.FindGameObjectsWithTag(tag);
+
+        foreach (GameObject go in remaining)
+        {
+            if (go.activeSelf)
+            {
+                Destroy(toDestroy);
+                yield break;
+            }
+        }
+    }
+
 }

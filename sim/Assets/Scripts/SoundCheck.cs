@@ -15,12 +15,12 @@ public class SoundCheck : MonoBehaviour
         if (!wait.isPlaying && pow)
         {
             StartCoroutine(delay());
-            bgm.Play();
             pow = false;
         }
     }
 
     IEnumerator delay() {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(10f);
+        bgm.Play();
     }
 }

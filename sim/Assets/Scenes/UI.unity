@@ -2042,6 +2042,7 @@ GameObject:
   - component: {fileID: 581448614}
   - component: {fileID: 581448613}
   - component: {fileID: 581448612}
+  - component: {fileID: 581448616}
   m_Layer: 5
   m_Name: Rabbit Selector
   m_TagString: Untagged
@@ -2157,19 +2158,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244127415}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnHover
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244127415}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2218,6 +2207,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581448610}
   m_CullTransparentMesh: 1
+--- !u!114 &581448616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581448610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1244127415}
+          m_TargetAssemblyTypeName: Button, Assembly-CSharp
+          m_MethodName: PlayTick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &603134291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3316,7 @@ GameObject:
   - component: {fileID: 844200909}
   - component: {fileID: 844200908}
   - component: {fileID: 844200911}
+  - component: {fileID: 844200912}
   m_Layer: 5
   m_Name: Wolf Selector
   m_TagString: Untagged
@@ -3401,19 +3420,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244127415}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnHover
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244127415}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3474,6 +3481,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5bf67a3a7716044bbb635a103d37a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &844200912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844200906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1244127415}
+          m_TargetAssemblyTypeName: Button, Assembly-CSharp
+          m_MethodName: PlayTick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &855515399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3560,7 @@ GameObject:
   - component: {fileID: 978022665}
   - component: {fileID: 978022664}
   - component: {fileID: 978022663}
+  - component: {fileID: 978022667}
   m_Layer: 5
   m_Name: Deer Selector
   m_TagString: Untagged
@@ -3639,19 +3676,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244127415}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnHover
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244127415}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3700,6 +3725,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978022661}
   m_CullTransparentMesh: 1
+--- !u!114 &978022667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978022661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1244127415}
+          m_TargetAssemblyTypeName: Button, Assembly-CSharp
+          m_MethodName: PlayTick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1086168528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4320,6 +4374,7 @@ MonoBehaviour:
   hasPlayed: 0
   aud: {fileID: 613942204}
   tick: {fileID: 8300000, guid: b4255d02f0c65b44fa20c52fcad2119f, type: 3}
+  click: {fileID: 8300000, guid: e5477b4d7a0702e4cb5db7fe308b4094, type: 3}
 --- !u!114 &1244127416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4904,6 +4959,7 @@ GameObject:
   - component: {fileID: 1444004495}
   - component: {fileID: 1444004494}
   - component: {fileID: 1444004493}
+  - component: {fileID: 1444004497}
   m_Layer: 5
   m_Name: Mountain Lion Selector
   m_TagString: Untagged
@@ -5019,19 +5075,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244127415}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnHover
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244127415}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5080,6 +5124,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444004491}
   m_CullTransparentMesh: 1
+--- !u!114 &1444004497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444004491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1244127415}
+          m_TargetAssemblyTypeName: Button, Assembly-CSharp
+          m_MethodName: PlayTick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1450686599
 GameObject:
   m_ObjectHideFlags: 0
@@ -7366,6 +7439,7 @@ GameObject:
   - component: {fileID: 2063680833}
   - component: {fileID: 2063680832}
   - component: {fileID: 2063680831}
+  - component: {fileID: 2063680835}
   m_Layer: 5
   m_Name: Coyote Selector
   m_TagString: Untagged
@@ -7481,19 +7555,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1244127415}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnHover
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1244127415}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7542,6 +7604,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063680829}
   m_CullTransparentMesh: 1
+--- !u!114 &2063680835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063680829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1244127415}
+          m_TargetAssemblyTypeName: Button, Assembly-CSharp
+          m_MethodName: PlayTick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2099564712
 GameObject:
   m_ObjectHideFlags: 0

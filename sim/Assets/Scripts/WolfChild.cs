@@ -11,12 +11,12 @@ public class WolfChild : Animal
     
     public Animator animator;
 
+    // Queue<int> flipCount = new Queue<int>();
+    // private int smooth = 200;
+    
+
     void Start()
     {
-        GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");;
-        GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");;
-        prey = deer.Concat(rabbits).ToArray();
-
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
@@ -27,13 +27,13 @@ public class WolfChild : Animal
     void Update()
     {
         
-
         if (death)
         {
             animator.SetBool("dead", true);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Debug.Log("Starved to Death");
             gameObject.tag = "Carrion";
+            //StartCoroutine(destroy("Carrion", this.gameObject));
             death = false;
             dead = true;
         }
@@ -43,25 +43,38 @@ public class WolfChild : Animal
             starvation = StartCoroutine(checkStarvation(60f));
             check = false;
         }
+
+        queueFlipCount();
+
+        if (Time.frameCount % smooth == 0)
+        {
+            checkRot();
+
+            if (average < 0)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
+
+        }
         
-        if (velocity.x < 0 && sr != null)
-        {
-            sr.flipX = true;
-        }
-        else
-        {
-            sr.flipX = false;
-        }
-    
         if (hungry && !dead)
         {
-            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");;
-            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");;
-            prey = deer.Concat(rabbits).ToArray();
+            fillPrey(UIManager.deerFlockNum, "Deer");
+            fillPrey(UIManager.rabbitFlockNum, "Rabbit");
             
-            attack(.6f);
+            attack(.5f);
         }
 
+        if (wolfAt)
+        {
+            animator.SetTrigger("attack");
+            wolfAt = false;
+        }
+    
         flock(0.6f);
 
         if (flockID == 0)
@@ -107,6 +120,5 @@ public class WolfChild : Animal
                 hunger = StartCoroutine(checkHunger(10f));
             }
         }
-
     }
 }

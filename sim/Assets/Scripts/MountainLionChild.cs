@@ -34,28 +34,33 @@ public class MountainLionChild : Animal
             starvation = StartCoroutine(checkStarvation(60f));
             check = false;
         }
-        
-        if (velocity.x < 0 && sr != null)
+
+        queueFlipCount();
+
+        if (Time.frameCount % smooth == 0)
         {
-            sr.flipX = true;
-        }
-        else
-        {
-            sr.flipX = false;
+            checkRot();
+
+            if (average < 0)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
         }
         
         if (hungry)
         {
-            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
-            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
-            GameObject[] coyotes = GameObject.FindGameObjectsWithTag("Coyote");
-            combo = deer.Concat(rabbits).ToArray();
-            prey = combo.Concat(coyotes).ToArray();
+            fillPrey(UIManager.deerFlockNum, "Deer");
+            fillPrey(UIManager.rabbitFlockNum, "Rabbit");
+            fillPrey(UIManager.coyoteFlockNum, "Coyote");
 
-            attack(0.6f);   
+            attack(1f);   
         }
         
-        flock(0.6f);
+        flock(1f);
 
         if (flockID == 0)
         {

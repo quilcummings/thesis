@@ -10,22 +10,26 @@ public class Button : MonoBehaviour
 
     public AudioSource aud;
     public AudioClip tick;
+    public AudioClip click;
 
     public void OnButtonPress() {
-        aud.PlayOneShot(tick);
+        PlayClick();
         SceneManager.LoadScene("UI", LoadSceneMode.Single);
     }
 
     public void LoadGame() {
-        aud.PlayOneShot(tick);
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        PlayClick();
+
+        LoadMain();
+        //Invoke("LoadMain", 3);
+        //SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 
     public void OnHover() {
         Debug.Log("Enter");
     
         if(!hasPlayed){
-            aud.PlayOneShot(tick);
+            PlayTick();
             hasPlayed = true;
         }
     }
@@ -34,4 +38,17 @@ public class Button : MonoBehaviour
         Debug.Log("Exit");
         hasPlayed = false;
     }
+
+    public void PlayClick() {
+        aud.PlayOneShot(click);
+    }
+
+    public void PlayTick() {
+        aud.PlayOneShot(tick);
+    }
+
+    public void LoadMain(){
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
 }

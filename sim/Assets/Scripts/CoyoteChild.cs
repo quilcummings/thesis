@@ -14,8 +14,6 @@ public class CoyoteChild : Animal
     
     void Start()
     {
-        
-
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
@@ -34,26 +32,35 @@ public class CoyoteChild : Animal
             starvation = StartCoroutine(checkStarvation(60f));
             check = false;
         }
-        
-        if (velocity.x < 0 && sr != null)
+
+        queueFlipCount();
+
+        if (Time.frameCount % smooth == 0)
         {
-            sr.flipX = true;
-        }
-        else
-        {
-            sr.flipX = false;
+            checkRot();
+
+            if (average < 0)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
+
         }
         
         if (hungry)
         {
-            GameObject[] deer = GameObject.FindGameObjectsWithTag("Deer");
-            GameObject[] rabbits = GameObject.FindGameObjectsWithTag("Rabbit");
-            GameObject[] deadWolves = GameObject.FindGameObjectsWithTag("Carrion");
-            combo = deer.Concat(rabbits).ToArray();
-            prey = combo.Concat(deadWolves).ToArray();
-            
+
+            fillPrey(UIManager.deerFlockNum, "Deer");
+            fillPrey(UIManager.rabbitFlockNum, "Rabbit");
+            if (GameObject.FindGameObjectsWithTag("Carrion") != null)
+            {
+                fillPrey(1, "Carrion");
+            }
+
             attack(0.6f);
-            
         }
         
         flock(0.6f);
@@ -86,11 +93,6 @@ public class CoyoteChild : Animal
 
         if (col.gameObject.tag == "Deer" || col.gameObject.tag == "Rabbit" || col.gameObject.tag == "Carrion")
         {
-
-            // if (!hungry)
-            // {        
-            //     Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>());
-            // }
             if (hungry)
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
@@ -105,8 +107,6 @@ public class CoyoteChild : Animal
             
                 hunger = StartCoroutine(checkHunger(15f));
             }
-            
-           
         }
     }
 }

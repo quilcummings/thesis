@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RabbitChild : Animal
 {
-    
+    private GameObject[] combo;
+
     void Start()
     {
-        predator = GameObject.FindGameObjectsWithTag("Wolf");
-
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
     }
@@ -16,16 +16,29 @@ public class RabbitChild : Animal
     
     void Update()
     {
-        if (velocity.x < 0 && sr != null)
+        queueFlipCount();
+
+        if (Time.frameCount % smooth == 0)
         {
-            sr.flipX = true;
-        }
-        else
-        {
-            sr.flipX = false;
+            checkRot();
+
+            if (average < 0)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
+
         }
 
+        fillPredator(UIManager.wolfFlockNum, "Wolf");
+        fillPredator(UIManager.coyoteFlockNum, "Coyote");
+        fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
+
         flock(0.6f);
+        flee(0.1f);
 
         if (flockID == 0)
         {
@@ -37,6 +50,9 @@ public class RabbitChild : Animal
             goalPos.x = RabbitFlock.Instance.RabbitFlock2.transform.position.x + Random.Range(-50f,50f);
             goalPos.y = RabbitFlock.Instance.RabbitFlock2.transform.position.y + Random.Range(-50f,50f);
         }
+
+        
+
     }
     
     void OnCollisionEnter2D(Collision2D col)
