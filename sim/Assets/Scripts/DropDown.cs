@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class DropDown : MonoBehaviour
 {
     
+
     public void wolfSelect(int index)
     {
         switch (index)
@@ -85,4 +87,45 @@ public class DropDown : MonoBehaviour
                 break;
         }
     }
+
+    // public void wolfNav(int index)
+    // {
+    //     Debug.Log("Test");
+    //     switch (index)
+    //     {
+    //         case 0: 
+    //             if (UIManager.wolfFlockNum == 0)
+    //             {
+    //                 placeWolfPack();
+    //             }
+    //             else if (UIManager.wolfFlockNum == 2)
+    //             {
+    //                 findGroup(wolfOne);
+    //             }
+    //             break;
+    //         case 1: 
+    //             if (UIManager.wolfFlockNum == 1)
+    //             {
+    //                 findGroup(wolfOne);
+    //             }
+    //             else if (UIManager.wolfFlockNum == 2)
+    //             {
+    //                 findGroup(wolfTwo);
+    //             }
+    //             break;
+    //     }
+    // }
+
+    // public void placeWolfPack()
+    // {
+    //     UIFlock.Instance.wolvesDone = false;
+    //     UIManager.wolfFlockNum = 1;
+    // }
+
+    // public void findGroup(GameObject manager)
+    // {
+    //     var step =  5 * Time.deltaTime; 
+    //     cam.transform.position = Vector3.MoveTowards(cam.transform.position, manager.transform.position, step);
+    
+    // }
 }

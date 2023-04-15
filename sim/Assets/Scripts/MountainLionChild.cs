@@ -26,6 +26,7 @@ public class MountainLionChild : Animal
     {
         if (death)
         {
+            DisplayInfo.Instance.deadAnimals.Add(gameObject);
             gameObject.SetActive(false);
         }
         
@@ -97,6 +98,7 @@ public class MountainLionChild : Animal
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
 
+                DisplayInfo.Instance.deadAnimals.Add(col.gameObject);
                 col.gameObject.SetActive(false);
 
                 hungry = false;

@@ -75,5 +75,6 @@ public class DeerChild : Animal
         {
             Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
         }
+
     }
 }

@@ -24,6 +24,7 @@ public class CoyoteChild : Animal
     {
         if (death)
         {
+            DisplayInfo.Instance.deadAnimals.Add(gameObject);
             gameObject.SetActive(false);
         }
         
@@ -60,7 +61,7 @@ public class CoyoteChild : Animal
                 fillPrey(1, "Carrion");
             }
 
-            attack(0.6f);
+            attack(0.4f);
         }
         
         flock(0.6f);
@@ -97,6 +98,7 @@ public class CoyoteChild : Animal
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
 
+                DisplayInfo.Instance.deadAnimals.Add(col.gameObject);
                 col.gameObject.SetActive(false);
 
                 hungry = false;

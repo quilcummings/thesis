@@ -13,7 +13,7 @@ public class FlockManager : MonoBehaviour
     //public GameObject manager;
     public int groupSize;
     
-    public Vector3 limits = new Vector3(1, 1, 1);
+    public Vector3 limits = new Vector3(2, 2, 2);
 
     public Tilemap tilemap;
     public List<Vector3> tileWorldLocations;

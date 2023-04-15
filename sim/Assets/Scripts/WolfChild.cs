@@ -33,7 +33,6 @@ public class WolfChild : Animal
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Debug.Log("Starved to Death");
             gameObject.tag = "Carrion";
-            //StartCoroutine(destroy("Carrion", this.gameObject));
             death = false;
             dead = true;
         }
@@ -79,7 +78,6 @@ public class WolfChild : Animal
 
         if (flockID == 0)
         {
-         
             goalPos.x = WolfFlock.Instance.WolfFlock1.transform.position.x + Random.Range(-50f,50f);
             goalPos.y = WolfFlock.Instance.WolfFlock1.transform.position.y + Random.Range(-50f,50f);
         }
@@ -109,6 +107,7 @@ public class WolfChild : Animal
             {
                 Physics2D.IgnoreCollision(coll, GetComponent<Collider2D>(), false);
 
+                DisplayInfo.Instance.deadAnimals.Add(col.gameObject);
                 col.gameObject.SetActive(false);
 
                 hungry = false;

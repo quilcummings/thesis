@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIFlock : MonoBehaviour
 {
+    public static UIFlock Instance;
+
     public TMP_Text dialogue;
     float min;
     float index;
@@ -14,6 +17,11 @@ public class UIFlock : MonoBehaviour
     public List<Vector3> tileWorldLocations;
 
     public bool second = false;
+    public bool secondD = false;
+    public bool secondC = false;
+    public bool secondR = false;
+    public bool secondML = false;
+
     public bool pow = true;
 
     public bool wolvesDone = false;
@@ -23,11 +31,19 @@ public class UIFlock : MonoBehaviour
     public bool mountainLionsDone = false;
 
     public bool done = false;
+    public bool buttonPressed = false;
+    public bool dbuttonPressed = false;
+    public bool rbuttonPressed = false;
+    public bool mlbuttonPressed = false;
+    public bool cbuttonPressed = false;
 
     public AudioSource aud;
     public AudioClip click;
 
-
+    void Awake() 
+    {
+        Instance = this;
+    }
     void Start ()
     {
         tileWorldLocations = new List<Vector3>();
@@ -115,10 +131,17 @@ public class UIFlock : MonoBehaviour
                 int ind = getIndex();
                 WolfFlock.Instance.packOne(ind);
                 wolvesDone = true;
+                dialogue.text = "";
             }
         }
         else if (UIManager.wolfFlockNum == 2)
         {
+            if (buttonPressed)
+            {
+                dialogue.text = "Choose a location for your second wolf pack";
+                second = true;
+            }
+
             if (pow)
             {
                 dialogue.text = "Choose a location for your first wolf pack";
@@ -148,6 +171,7 @@ public class UIFlock : MonoBehaviour
     }
 
     public void deer() {
+
         if (UIManager.deerFlockNum == 1)
         {
             dialogue.text = "Choose a location for your deer herd";
@@ -162,27 +186,33 @@ public class UIFlock : MonoBehaviour
         }
         else if (UIManager.deerFlockNum == 2)
         {
+            if (dbuttonPressed)
+            {
+                dialogue.text = "Choose a location for your second deer herd";
+                secondD = true;
+            }
+
             if (pow)
             {
                 dialogue.text = "Choose a location for your first deer herd";
                 pow = false;
             }
-            if (Input.GetMouseButtonDown(0) && !second)
+            if (Input.GetMouseButtonDown(0) && !secondD)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 DeerFlock.Instance.groupOne(ind);
                 
-                StartCoroutine(pause());
+                StartCoroutine(pauseD());
                 dialogue.text = "Choose a location for your second deer herd";
 
             }
-            else if (Input.GetMouseButtonDown(0) && second)
+            else if (Input.GetMouseButtonDown(0) && secondD)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 DeerFlock.Instance.groupTwo(ind);
-                second = false;
+                secondD = false;
                 deerDone = true;
                 pow = true;
                 dialogue.text = "";
@@ -206,27 +236,32 @@ public class UIFlock : MonoBehaviour
         }
         else if (UIManager.rabbitFlockNum == 2)
         {
+            if (rbuttonPressed)
+            {
+                dialogue.text = "Choose a location for your second rabbit colony";
+                secondR = true;
+            }
             if (pow)
             {
                 dialogue.text = "Choose a location for your first rabbit colony";
                 pow = false;
             }
-            if (Input.GetMouseButtonDown(0) && !second)
+            if (Input.GetMouseButtonDown(0) && !secondR)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 RabbitFlock.Instance.groupOne(ind);
                 
-                StartCoroutine(pause());
+                StartCoroutine(pauseR());
                 dialogue.text = "Choose a location for your second rabbit colony";
 
             }
-            else if (Input.GetMouseButtonDown(0) && second)
+            else if (Input.GetMouseButtonDown(0) && secondR)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 RabbitFlock.Instance.groupTwo(ind);
-                second = false;
+                secondR = false;
                 rabbitsDone = true;
                 pow = true;
                 dialogue.text = "";
@@ -248,27 +283,32 @@ public class UIFlock : MonoBehaviour
         }
         else if (UIManager.coyoteFlockNum == 2)
         {
+            if (cbuttonPressed)
+            {
+                dialogue.text = "Choose a location for your second coyote pack";
+                secondC = true;
+            }
             if (pow)
             {
                 dialogue.text = "Choose a location for your first coyote pack";
                 pow = false;
             }
-            if (Input.GetMouseButtonDown(0) && !second)
+            if (Input.GetMouseButtonDown(0) && !secondC)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 CoyoteFlock.Instance.groupOne(ind);
                 
-                StartCoroutine(pause());
+                StartCoroutine(pauseC());
                 dialogue.text = "Choose a location for your second coyote pack";
 
             }
-            else if (Input.GetMouseButtonDown(0) && second)
+            else if (Input.GetMouseButtonDown(0) && secondC)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 CoyoteFlock.Instance.groupTwo(ind);
-                second = false;
+                secondC = false;
                 coyotesDone = true;
                 pow = true;
                 dialogue.text = "";
@@ -290,27 +330,32 @@ public class UIFlock : MonoBehaviour
         }
         else if (UIManager.mountainLionFlockNum == 2)
         {
+            if (mlbuttonPressed)
+            {
+                dialogue.text = "Choose a location for your second mountain lion pride";
+                secondML = true;
+            }
             if (pow)
             {
                 dialogue.text = "Choose a location for your first mountain lion pride";
                 pow = false;
             }
-            if (Input.GetMouseButtonDown(0) && !second)
+            if (Input.GetMouseButtonDown(0) && !secondML)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 MountainLionFlock.Instance.groupOne(ind);
                 
-                StartCoroutine(pause());
+                StartCoroutine(pauseML());
                 dialogue.text = "Choose a location for your second mountain lion pride";
 
             }
-            else if (Input.GetMouseButtonDown(0) && second)
+            else if (Input.GetMouseButtonDown(0) && secondML)
             {  
                 aud.PlayOneShot(click);
                 int ind = getIndex();
                 MountainLionFlock.Instance.groupTwo(ind);
-                second = false;
+                secondML = false;
                 mountainLionsDone = true;
                 pow = true;
                 dialogue.text = "";
@@ -344,5 +389,21 @@ public class UIFlock : MonoBehaviour
     IEnumerator pause() {
         yield return new WaitForSeconds(1f);
         second = true;
+    }
+    IEnumerator pauseD() {
+        yield return new WaitForSeconds(1f);
+        secondD = true;
+    }
+    IEnumerator pauseC() {
+        yield return new WaitForSeconds(1f);
+        secondC = true;
+    }
+    IEnumerator pauseR() {
+        yield return new WaitForSeconds(1f);
+        secondR = true;
+    }
+    IEnumerator pauseML() {
+        yield return new WaitForSeconds(1f);
+        secondML = true;
     }
 }
