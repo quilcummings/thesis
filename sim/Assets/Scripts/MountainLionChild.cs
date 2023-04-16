@@ -20,6 +20,8 @@ public class MountainLionChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         hunger = StartCoroutine(checkHunger(10f));
+
+        flockSpeed = 1f;
     }
     
     void Update()
@@ -61,7 +63,7 @@ public class MountainLionChild : Animal
             attack(1f);   
         }
         
-        flock(1f);
+        flock(flockSpeed);
 
         if (flockID == 0)
         {

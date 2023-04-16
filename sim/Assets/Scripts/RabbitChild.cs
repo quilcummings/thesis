@@ -11,6 +11,8 @@ public class RabbitChild : Animal
     {
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
+
+        flockSpeed = 0.6f;
     }
 
     
@@ -37,7 +39,7 @@ public class RabbitChild : Animal
         fillPredator(UIManager.coyoteFlockNum, "Coyote");
         fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
 
-        flock(0.6f);
+        flock(flockSpeed);
         flee(0.1f);
 
         if (flockID == 0)

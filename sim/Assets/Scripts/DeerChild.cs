@@ -12,6 +12,9 @@ public class DeerChild : Animal
     {
         velocity = new Vector2(Random.Range(0.1f,0.5f), Random.Range(0.1f, 0.5f));
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
+
+        flockSpeed = 0.6f;
+        fleeSpeed = 0.1f;
     }
 
     void Update()
@@ -46,8 +49,8 @@ public class DeerChild : Animal
         fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
 
 
-        flock(0.6f);
-        flee(0.1f);
+        flock(flockSpeed);
+        flee(fleeSpeed);
 
         if (flockID == 0)
         {

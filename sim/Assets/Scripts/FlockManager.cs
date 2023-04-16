@@ -74,7 +74,7 @@ public class FlockManager : MonoBehaviour
 
     }
 
-    public void spawnAnimals(float waitTime, int minAdd, int maxAdd, int ID, GameObject man)
+    public void spawnAnimals(float waitTime, int minAdd, int maxAdd, int ID, GameObject man, List<GameObject> list)
     {
 
         group = new GameObject[groupSize];
@@ -89,24 +89,28 @@ public class FlockManager : MonoBehaviour
             group[i].GetComponent<Animal>().flockID = ID;
         }
 
-        StartCoroutine(spawn(waitTime, minAdd, maxAdd, man, ID));
+        StartCoroutine(spawn(waitTime, minAdd, maxAdd, man, ID, list));
     }
 
-    public IEnumerator spawn(float waitTime, int minAdd, int maxAdd, GameObject man, int ID)
+    public IEnumerator spawn(float waitTime, int minAdd, int maxAdd, GameObject man, int ID, List<GameObject> list)
     {
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            int groupSize = Random.Range(minAdd, maxAdd);
-            
-            newAnimals = new GameObject[groupSize];
-            for (int i = 0; i < groupSize; i++)
+            if (list.Count != 0)
             {
-                //Debug.Log(prefab.tag + " " + ID.ToString() + " " + man.transform.position);
+                int groupSize = Random.Range(minAdd, maxAdd);
+            
+                newAnimals = new GameObject[groupSize];
+                for (int i = 0; i < groupSize; i++)
+                {
+                    //Debug.Log(prefab.tag + " " + ID.ToString() + " " + man.transform.position);
 
-                newAnimals[i] = Instantiate(prefab, man.transform.position, Quaternion.identity);
-                newAnimals[i].GetComponent<Animal>().flockID = ID;
+                    newAnimals[i] = Instantiate(prefab, man.transform.position, Quaternion.identity);
+                    newAnimals[i].GetComponent<Animal>().flockID = ID;
+                }
             }
+            
         }
     } 
 }

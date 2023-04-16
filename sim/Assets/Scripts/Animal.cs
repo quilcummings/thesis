@@ -29,6 +29,9 @@ public class Animal : MonoBehaviour
     //public GameObject[] prey;
     //public GameObject[] predator;
 
+    public float flockSpeed;
+    public float fleeSpeed;
+
     public List<GameObject> predator = new List<GameObject>();
     public List<GameObject> prey = new List<GameObject>();
 

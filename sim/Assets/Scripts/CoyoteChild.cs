@@ -18,6 +18,8 @@ public class CoyoteChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         hunger = StartCoroutine(checkHunger(10f));
+
+        flockSpeed = 0.6f;
     }
     
     void Update()
@@ -64,7 +66,7 @@ public class CoyoteChild : Animal
             attack(0.4f);
         }
         
-        flock(0.6f);
+        flock(flockSpeed);
 
         if (flockID == 0)
         {

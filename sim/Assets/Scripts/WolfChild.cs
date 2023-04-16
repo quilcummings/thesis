@@ -11,6 +11,8 @@ public class WolfChild : Animal
     
     public Animator animator;
 
+    private int count = 0;
+
     // Queue<int> flipCount = new Queue<int>();
     // private int smooth = 200;
     
@@ -21,6 +23,8 @@ public class WolfChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         hunger = StartCoroutine(checkHunger(10f));
+
+        flockSpeed = 0.6f;
     }
 
     
@@ -74,7 +78,7 @@ public class WolfChild : Animal
             wolfAt = false;
         }
     
-        flock(0.6f);
+        flock(flockSpeed);
 
         if (flockID == 0)
         {

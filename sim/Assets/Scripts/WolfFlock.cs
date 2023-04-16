@@ -36,12 +36,12 @@ public class WolfFlock : FlockManager
     public void packOne(int index)
     {
         setup(WolfFlock1, index);
-        spawnAnimals(60f, 3, 5, 0, WolfFlock1);
+        spawnAnimals(60f, 3, 5, 0, WolfFlock1, DisplayInfo.Instance.wolves);
     }
 
     public void packTwo(int index)
     {
         setup(WolfFlock2, index);
-        spawnAnimals(60f, 3, 5, 1, WolfFlock2);
+        spawnAnimals(60f, 3, 5, 1, WolfFlock2, DisplayInfo.Instance.wolves);
     }
 }

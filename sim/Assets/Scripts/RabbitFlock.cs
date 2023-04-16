@@ -35,12 +35,12 @@ public class RabbitFlock : FlockManager
     public void groupOne(int index)
     {
         setup(RabbitFlock1, index);
-        spawnAnimals(40f, 5, 7, 0, RabbitFlock1);
+        spawnAnimals(40f, 5, 7, 0, RabbitFlock1, DisplayInfo.Instance.rabbits);
     }
 
     public void groupTwo(int index)
     {
         setup(RabbitFlock2, index);
-        spawnAnimals(40f, 5, 7, 1, RabbitFlock2);
+        spawnAnimals(40f, 5, 7, 1, RabbitFlock2, DisplayInfo.Instance.rabbits);
     }
 }

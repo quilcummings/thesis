@@ -36,12 +36,12 @@ public class CoyoteFlock : FlockManager
     public void groupOne(int index)
     {
         setup(CoyoteFlock1, index);
-        spawnAnimals(100f, 2, 4, 0, CoyoteFlock1);
+        spawnAnimals(100f, 2, 4, 0, CoyoteFlock1, DisplayInfo.Instance.coyotes);
     }
 
     public void groupTwo(int index)
     {
         setup(CoyoteFlock2, index);
-        spawnAnimals(100f, 2, 4, 1, CoyoteFlock2);
+        spawnAnimals(100f, 2, 4, 1, CoyoteFlock2, DisplayInfo.Instance.coyotes);
     }
 }

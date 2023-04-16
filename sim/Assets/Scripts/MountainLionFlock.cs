@@ -35,12 +35,12 @@ public class MountainLionFlock : FlockManager
     public void groupOne(int index)
     {
         setup(MountainLionFlock1, index);
-        spawnAnimals(60f, 1, 2, 0, MountainLionFlock1);
+        spawnAnimals(60f, 1, 2, 0, MountainLionFlock1, DisplayInfo.Instance.mountainLions);
     }
 
     public void groupTwo(int index)
     {
         setup(MountainLionFlock2, index);
-        spawnAnimals(60f, 1, 2, 1, MountainLionFlock2);
+        spawnAnimals(60f, 1, 2, 1, MountainLionFlock2, DisplayInfo.Instance.mountainLions);
     }
 }

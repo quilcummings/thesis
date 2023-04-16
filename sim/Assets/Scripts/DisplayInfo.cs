@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class DisplayInfo : MonoBehaviour
 {
@@ -21,17 +22,28 @@ public class DisplayInfo : MonoBehaviour
 
     public List<GameObject> deadAnimals = new List<GameObject>();
 
-    public int wolfDeathCount;
-    public int rabbitDeathCount;
-    public int deerDeathCount;
-    public int coyoteDeathCount;
-    public int mountainLionDeathCount;
+    // public int wolfDeathCount;
+    // public int rabbitDeathCount;
+    // public int deerDeathCount;
+    // public int coyoteDeathCount;
+    // public int mountainLionDeathCount;
 
-    public int wolfCount;
-    public int rabbitCount;
-    public int deerCount;
-    public int coyoteCount;
-    public int mountainLionCount;
+    // public int wolfCount;
+    // public int rabbitCount;
+    // public int deerCount;
+    // public int coyoteCount;
+    // public int mountainLionCount;
+
+    public TMP_Text wolfDeaths;
+    public TMP_Text wolvesAlive;
+    public TMP_Text deerDeaths;
+    public TMP_Text deerAlive;
+    public TMP_Text rabbitDeaths;
+    public TMP_Text rabbitsAlive;
+    public TMP_Text coyoteDeaths;
+    public TMP_Text coyotesAlive;
+    public TMP_Text mountainLionDeaths;
+    public TMP_Text mountainLionsAlive;
     
     void Awake()
     {
@@ -125,17 +137,17 @@ public class DisplayInfo : MonoBehaviour
             }
         }
 
-        wolfCount = wolves.Count;
-        rabbitCount = rabbits.Count;
-        deerCount = deer.Count;
-        coyoteCount = coyotes.Count;
-        mountainLionCount = mountainLions.Count;
 
-        wolfDeathCount = deadWolves.Count;
-        rabbitDeathCount = deadRabbits.Count;
-        deerDeathCount = deadDeer.Count;
-        coyoteDeathCount = deadCoyotes.Count;
-        mountainLionDeathCount = deadMountainLions.Count;
+        wolvesAlive.text = "alive - " + wolves.Count.ToString();
+        wolfDeaths.text = "deaths - " + deadWolves.Count.ToString();
+        deerAlive.text = "alive - " + deer.Count.ToString();
+        deerDeaths.text = "deaths - " + deadDeer.Count.ToString();
+        rabbitsAlive.text = "alive - " + rabbits.Count.ToString();
+        rabbitDeaths.text = "deaths - " + deadRabbits.Count.ToString();
+        coyotesAlive.text = "alive - " + coyotes.Count.ToString();
+        coyoteDeaths.text = "deaths - " + deadCoyotes.Count.ToString();
+        mountainLionsAlive.text = "alive - " + mountainLions.Count.ToString();
+        mountainLionDeaths.text = "deaths - " + deadMountainLions.Count.ToString();
 
     }
 }
