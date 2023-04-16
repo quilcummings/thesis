@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ButtonToggle : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class ButtonToggle : MonoBehaviour
 
     private RectTransform controlRectTransfo;
 
+    private Color newColor = new Color(185f, 165f, 165f, 0.3f);
+
     void Update()
     {
         toggle(UIManager.wolfFlockNum, placeWolves, findWolfPackOne, findWolfPackTwo, 1);
@@ -37,25 +41,28 @@ public class ButtonToggle : MonoBehaviour
 
     public void toggle(int flockNum, GameObject placeGroup, GameObject findPackOne, GameObject findPackTwo, int index)
     {
+
         if (flockNum == 0)
         {
             controlRectTransfo = placeGroup.GetComponent<RectTransform>();
 
-            placeGroup.SetActive(true);
-            findPackOne.SetActive(false);
-            findPackTwo.SetActive(false);
+            placeGroup.GetComponent<Button>().interactable = true;            
+            findPackOne.GetComponent<Button>().interactable = false;
+            findPackTwo.GetComponent<Button>().interactable = false;
+            
         }
         else if (flockNum == 1)
         {
-            placeGroup.SetActive(true);
-            findPackOne.SetActive(true);
-            findPackTwo.SetActive(false);
+            placeGroup.GetComponent<Button>().interactable = true;            
+            findPackOne.GetComponent<Button>().interactable = true;
+            findPackTwo.GetComponent<Button>().interactable = false;
+
         }
         else if (flockNum == 2)
         {
-            placeGroup.SetActive(false);
-            findPackOne.SetActive(true);
-            findPackTwo.SetActive(true);
+            placeGroup.GetComponent<Button>().interactable = false;            
+            findPackOne.GetComponent<Button>().interactable = true;
+            findPackTwo.GetComponent<Button>().interactable = true;
         }
     }
 }

@@ -20,6 +20,8 @@ public class CoyoteChild : Animal
         hunger = StartCoroutine(checkHunger(10f));
 
         flockSpeed = 0.6f;
+
+        lifeSpan(135f, this.gameObject);
     }
     
     void Update()

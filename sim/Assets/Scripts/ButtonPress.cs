@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class ButtonPress : MonoBehaviour
 {
     public bool hasPlayed;
 
@@ -16,6 +16,11 @@ public class Button : MonoBehaviour
 
     public GameObject wolfOne;
     public GameObject wolfTwo;
+
+    public GameObject Tab;
+    public float TabOffset;
+
+    private RectTransform controlRectTransfo;
 
 
     public void OnButtonPress() {
@@ -32,7 +37,6 @@ public class Button : MonoBehaviour
     }
 
     public void OnHover() {
-        Debug.Log("Enter");
     
         if(!hasPlayed){
             PlayTick();
@@ -41,7 +45,6 @@ public class Button : MonoBehaviour
     }
 
     public void OnExit() {
-        Debug.Log("Exit");
         hasPlayed = false;
     }
 
@@ -50,7 +53,11 @@ public class Button : MonoBehaviour
     }
 
     public void PlayTick() {
-        aud.PlayOneShot(tick);
+        if (GetComponent<Button>().interactable)
+        {
+            aud.PlayOneShot(tick);
+        }
+        //aud.PlayOneShot(tick);
     }
 
     public void LoadMain(){
@@ -121,6 +128,19 @@ public class Button : MonoBehaviour
 
         cam.transform.position = position;
         //cam.transform.position = Vector3.MoveTowards(cam.transform.position, position, step);
+    }
+
+    public void hideTab() 
+    {
+        Tab.SetActive(false);
+    }
+    public void showTab()
+    {
+        Tab.SetActive(true);
+        controlRectTransfo = Tab.GetComponent<RectTransform>();
+        //controlRectTransfo.position = new Vector3(135f, TabOffset, 0f);
+        //Tab.transform.position = new Vector3(135f, TabOffset, 0f);
+        //controlRectTransfo.Translate(375f, TabOffset, 0f, Space.World);
     }
 
 }

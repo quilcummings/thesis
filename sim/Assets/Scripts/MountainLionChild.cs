@@ -22,6 +22,8 @@ public class MountainLionChild : Animal
         hunger = StartCoroutine(checkHunger(10f));
 
         flockSpeed = 1f;
+
+        lifeSpan(140f, this.gameObject);
     }
     
     void Update()

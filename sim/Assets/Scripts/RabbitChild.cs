@@ -13,6 +13,8 @@ public class RabbitChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         flockSpeed = 0.6f;
+
+        lifeSpan(130f, this.gameObject);
     }
 
     

@@ -15,6 +15,8 @@ public class DeerChild : Animal
 
         flockSpeed = 0.6f;
         fleeSpeed = 0.1f;
+
+        lifeSpan(120f, this.gameObject);
     }
 
     void Update()
@@ -45,7 +47,7 @@ public class DeerChild : Animal
         }
 
         fillPredator(UIManager.wolfFlockNum, "Wolf");
-        fillPredator(UIManager.coyoteFlockNum, "Wolf");
+        fillPredator(UIManager.coyoteFlockNum, "Coyote");
         fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
 
 

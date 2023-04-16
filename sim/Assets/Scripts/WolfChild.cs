@@ -11,7 +11,7 @@ public class WolfChild : Animal
     
     public Animator animator;
 
-    private int count = 0;
+    //private int count = 0;
 
     // Queue<int> flipCount = new Queue<int>();
     // private int smooth = 200;
@@ -25,6 +25,8 @@ public class WolfChild : Animal
         hunger = StartCoroutine(checkHunger(10f));
 
         flockSpeed = 0.6f;
+
+        lifeSpan(150f, this.gameObject);
     }
 
     

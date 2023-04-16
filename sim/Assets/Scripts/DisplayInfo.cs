@@ -20,19 +20,23 @@ public class DisplayInfo : MonoBehaviour
     public List<GameObject> deadCoyotes = new List<GameObject>();
     public List<GameObject> deadMountainLions = new List<GameObject>();
 
+    public List<GameObject> wolvesOne = new List<GameObject>();
+    public List<GameObject> wolvesTwo = new List<GameObject>();
+
+    public List<GameObject> rabbitsOne = new List<GameObject>();
+    public List<GameObject> rabbitsTwo = new List<GameObject>();
+
+    public List<GameObject> deerOne = new List<GameObject>();
+    public List<GameObject> deerTwo = new List<GameObject>();
+
+    public List<GameObject> coyotesOne = new List<GameObject>();
+    public List<GameObject> coyotesTwo = new List<GameObject>();
+
+    public List<GameObject> mountainLionsOne = new List<GameObject>();
+    public List<GameObject> mountainLionsTwo = new List<GameObject>();
+
+
     public List<GameObject> deadAnimals = new List<GameObject>();
-
-    // public int wolfDeathCount;
-    // public int rabbitDeathCount;
-    // public int deerDeathCount;
-    // public int coyoteDeathCount;
-    // public int mountainLionDeathCount;
-
-    // public int wolfCount;
-    // public int rabbitCount;
-    // public int deerCount;
-    // public int coyoteCount;
-    // public int mountainLionCount;
 
     public TMP_Text wolfDeaths;
     public TMP_Text wolvesAlive;
@@ -49,12 +53,6 @@ public class DisplayInfo : MonoBehaviour
     {
         Instance = this;
     }
-
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
@@ -87,14 +85,6 @@ public class DisplayInfo : MonoBehaviour
             }
 
         }
-        
-        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Wolf")) 
-        {
-            if (obj.activeSelf && !wolves.Contains(obj))
-            {
-                wolves.Add(obj);
-            }
-        }
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Carrion")) 
         {
@@ -102,38 +92,114 @@ public class DisplayInfo : MonoBehaviour
             {
                 wolves.Remove(obj);
                 deadWolves.Add(obj);
+
+                if (obj.GetComponent<Animal>().flockID == 0 && wolvesOne.Contains(obj))
+                {
+                    wolvesOne.Remove(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && wolvesTwo.Contains(obj))
+                {
+                    wolvesTwo.Remove(obj);
+                }
+            }
+        }
+
+        
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Wolf")) 
+        {
+            if (obj.activeSelf)
+            {
+                if (!wolves.Contains(obj))
+                {
+                    wolves.Add(obj);
+                }
+                if (obj.GetComponent<Animal>().flockID == 0 && !wolvesOne.Contains(obj))
+                {
+                    wolvesOne.Add(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && !wolvesTwo.Contains(obj))
+                {
+                    wolvesTwo.Add(obj);
+                }
+                
             }
         }
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Rabbit")) 
         {
-            if (obj.activeSelf && !rabbits.Contains(obj))
+            if (obj.activeSelf)
             {
-                rabbits.Add(obj);
+                if (!rabbits.Contains(obj))
+                {
+                    rabbits.Add(obj);
+                }
+                if (obj.GetComponent<Animal>().flockID == 0 && !rabbitsOne.Contains(obj))
+                {
+                    rabbitsOne.Add(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && !rabbitsTwo.Contains(obj))
+                {
+                    rabbitsTwo.Add(obj);
+                }
+                
             }
         }
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Deer")) 
         {
-            if (obj.activeSelf && !deer.Contains(obj))
+            if (obj.activeSelf)
             {
-                deer.Add(obj);
+                if (!deer.Contains(obj))
+                {
+                    deer.Add(obj);
+                }
+                if (obj.GetComponent<Animal>().flockID == 0 && !deerOne.Contains(obj))
+                {
+                    deerOne.Add(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && !deerTwo.Contains(obj))
+                {
+                    deerTwo.Add(obj);
+                }
+                
             }
         }
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Coyote")) 
         {
-            if (obj.activeSelf && !coyotes.Contains(obj))
+            if (obj.activeSelf)
             {
-                coyotes.Add(obj);
+                if (!coyotes.Contains(obj))
+                {
+                    coyotes.Add(obj);
+                }
+                if (obj.GetComponent<Animal>().flockID == 0 && !coyotesOne.Contains(obj))
+                {
+                    coyotesOne.Add(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && !coyotesTwo.Contains(obj))
+                {
+                    coyotesTwo.Add(obj);
+                }
             } 
         }
 
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("MountainLion")) 
         {
-            if (obj.activeSelf && !mountainLions.Contains(obj))
+            if (obj.activeSelf)
             {
-                mountainLions.Add(obj);
+                if (!mountainLions.Contains(obj))
+                {
+                    mountainLions.Add(obj);
+                }
+                if (obj.GetComponent<Animal>().flockID == 0 && !mountainLionsOne.Contains(obj))
+                {
+                    mountainLionsOne.Add(obj);
+                }
+                else if (obj.GetComponent<Animal>().flockID == 1 && !mountainLionsTwo.Contains(obj))
+                {
+                    mountainLionsTwo.Add(obj);
+                }
             }
         }
 
@@ -149,5 +215,6 @@ public class DisplayInfo : MonoBehaviour
         mountainLionsAlive.text = "alive - " + mountainLions.Count.ToString();
         mountainLionDeaths.text = "deaths - " + deadMountainLions.Count.ToString();
 
+        
     }
 }

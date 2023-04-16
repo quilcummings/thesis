@@ -233,4 +233,10 @@ public class Animal : MonoBehaviour
         }
     }
 
+    public IEnumerator lifeSpan(float waitTime, GameObject animal)
+    {
+        yield return new WaitForSeconds(waitTime);
+        animal.SetActive(false);
+    }
+
 }
