@@ -16,6 +16,7 @@ public class Animal : MonoBehaviour
     public bool death = false;
     public bool dead = false;
     public bool check = true;
+    public bool attacking = false;
 
     public int flockID;
 
@@ -23,11 +24,6 @@ public class Animal : MonoBehaviour
 
     public float average;
 
-    //public GameObject flock1;
-    //public GameObject flock2;
-    
-    //public GameObject[] prey;
-    //public GameObject[] predator;
 
     public float flockSpeed;
     public float fleeSpeed;
@@ -81,6 +77,7 @@ public class Animal : MonoBehaviour
             {
                 if(Vector3.Distance(transform.position, go.transform.position) < 3f && hungry)
                 {
+                    attacking = true;
                     if (clamp == .5f)
                     {
                         StartCoroutine(wolfAttack());

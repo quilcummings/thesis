@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ButtonPress : MonoBehaviour
 {
+    public static ButtonPress Instance;
+
     public bool hasPlayed;
 
     public AudioSource aud;
@@ -19,10 +21,14 @@ public class ButtonPress : MonoBehaviour
 
     public GameObject Tab;
     public float TabOffset;
+    public int selectCount;
 
     private RectTransform controlRectTransfo;
 
-
+    void Awake()
+    {
+        Instance = this;
+    }
     public void OnButtonPress() {
         PlayClick();
         SceneManager.LoadScene("UI", LoadSceneMode.Single);
@@ -136,11 +142,14 @@ public class ButtonPress : MonoBehaviour
     }
     public void showTab()
     {
-        Tab.SetActive(true);
-        controlRectTransfo = Tab.GetComponent<RectTransform>();
-        //controlRectTransfo.position = new Vector3(135f, TabOffset, 0f);
-        //Tab.transform.position = new Vector3(135f, TabOffset, 0f);
-        //controlRectTransfo.Translate(375f, TabOffset, 0f, Space.World);
+        if (GetComponent<Button>().interactable)
+        {  
+            Tab.SetActive(true);
+            DisplayStats.Instance.UpdateStats(selectCount);
+            controlRectTransfo = Tab.GetComponent<RectTransform>();
+            controlRectTransfo.anchoredPosition = new Vector3(-136f, TabOffset, 0f);
+        }
+        
     }
 
 }

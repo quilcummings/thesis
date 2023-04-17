@@ -117,6 +117,7 @@ public class WolfChild : Animal
                 col.gameObject.SetActive(false);
 
                 hungry = false;
+                attacking = false;
                 check = true;
             
                 StopCoroutine(hunger);
