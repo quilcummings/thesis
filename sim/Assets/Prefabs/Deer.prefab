@@ -59,9 +59,16 @@ MonoBehaviour:
   death: 0
   dead: 0
   check: 1
+  attacking: 0
   flockID: 0
-  prey: []
+  wolfAt: 0
+  average: 0
+  flockSpeed: 0
+  fleeSpeed: 0
   predator: []
+  prey: []
+  remaining: []
+  smooth: 200
 --- !u!212 &4027978007177911445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,12 +110,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1753532600, guid: 2513bd899d28aa14783fdb405958abf9, type: 3}
+  m_Sprite: {fileID: -413397377, guid: 2513bd899d28aa14783fdb405958abf9, type: 3}
   m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 18.22, y: 16.863972}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -172,8 +179,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.569375, y: 0.5269991}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 18.22, y: 16.863972}
+    newSize: {x: 18.22, y: 16.863972}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

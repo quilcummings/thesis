@@ -7,14 +7,14 @@ public class DisplayStats : MonoBehaviour
 {
     public static DisplayStats Instance;
 
-    public TMP_Text stats;
-    List<GameObject> list = new List<GameObject>();
+    //public TMP_Text stats;
+    private List<GameObject> list = new List<GameObject>();
 
     void Awake()
     {
         Instance = this;
     }
-    public void UpdateStats(int index)
+    public void UpdateStats(int index, TMP_Text stats)
     {
         int hungryCount = 0;
         int attackingCount = 0;
@@ -51,15 +51,15 @@ public class DisplayStats : MonoBehaviour
         }
         else if (index == 8)
         {
-            list = DisplayInfo.Instance.wolvesTwo;
+            list = DisplayInfo.Instance.rabbitsTwo;
         }
         else if (index == 9)
         {
-            list = DisplayInfo.Instance.wolvesTwo;
+            list = DisplayInfo.Instance.mountainLionsOne;
         }
         else if (index == 10)
         {
-            list = DisplayInfo.Instance.wolvesTwo;
+            list = DisplayInfo.Instance.mountainLionsTwo;
         }
 
         foreach(GameObject obj in list)

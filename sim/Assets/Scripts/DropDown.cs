@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
-public class DropDown : MonoBehaviour
+public class Dropdown : MonoBehaviour
 {
-    
+    public TMP_Dropdown dd;
+
+    void Start()
+    {
+        dd.SetValueWithoutNotify(1);
+    }
 
     public void wolfSelect(int index)
     {

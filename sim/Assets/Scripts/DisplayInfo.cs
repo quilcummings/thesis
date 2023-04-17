@@ -67,21 +67,53 @@ public class DisplayInfo : MonoBehaviour
             {
                 deadRabbits.Add(obj);
                 rabbits.Remove(obj);
+                if (rabbitsOne.Contains(obj))
+                {
+                    rabbitsOne.Remove(obj);
+                }
+                else if (rabbitsTwo.Contains(obj))
+                {
+                    rabbitsTwo.Remove(obj);
+                }
             }
             else if (obj.tag == "Deer" && !deadDeer.Contains(obj))
             {
                 deadDeer.Add(obj);
                 deer.Remove(obj);
+                if (deerOne.Contains(obj))
+                {
+                    deerOne.Remove(obj);
+                }
+                else if (deerTwo.Contains(obj))
+                {
+                    deerTwo.Remove(obj);
+                }
             }
             else if (obj.tag == "Coyote" && !deadCoyotes.Contains(obj))
             {
                 deadCoyotes.Add(obj);
                 coyotes.Remove(obj);
+                if (coyotesOne.Contains(obj))
+                {
+                    coyotesOne.Remove(obj);
+                }
+                else if (coyotesTwo.Contains(obj))
+                {
+                    coyotesTwo.Remove(obj);
+                }
             }
             else if (obj.tag == "MountainLion" && !deadMountainLions.Contains(obj))
             {
                 deadMountainLions.Add(obj);
                 mountainLions.Remove(obj);
+                if (mountainLionsOne.Contains(obj))
+                {
+                    mountainLionsOne.Remove(obj);
+                }
+                else if (mountainLionsTwo.Contains(obj))
+                {
+                    mountainLionsTwo.Remove(obj);
+                }
             }
 
         }

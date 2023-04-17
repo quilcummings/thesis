@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonPress : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class ButtonPress : MonoBehaviour
     public GameObject wolfTwo;
 
     public GameObject Tab;
+    public TMP_Text text;
     public float TabOffset;
     public int selectCount;
 
@@ -145,9 +147,9 @@ public class ButtonPress : MonoBehaviour
         if (GetComponent<Button>().interactable)
         {  
             Tab.SetActive(true);
-            DisplayStats.Instance.UpdateStats(selectCount);
-            controlRectTransfo = Tab.GetComponent<RectTransform>();
-            controlRectTransfo.anchoredPosition = new Vector3(-136f, TabOffset, 0f);
+            DisplayStats.Instance.UpdateStats(selectCount, text);
+            //controlRectTransfo = Tab.GetComponent<RectTransform>();
+            //controlRectTransfo.anchoredPosition = new Vector3(-141.4f, TabOffset, 0f);
         }
         
     }
