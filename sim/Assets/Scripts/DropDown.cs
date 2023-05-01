@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class Dropdown : MonoBehaviour
+public class DropDown : MonoBehaviour
 {
     public TMP_Dropdown dd;
 
