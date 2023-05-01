@@ -13,6 +13,7 @@ public class RabbitChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         flockSpeed = 0.6f;
+        fleeSpeed = 0.03f;
 
         lifeSpan(130f, this.gameObject);
     }
@@ -42,7 +43,7 @@ public class RabbitChild : Animal
         fillPredator(UIManager.mountainLionFlockNum, "MountainLion");
 
         flock(flockSpeed);
-        flee(0.1f);
+        flee(fleeSpeed);
 
         if (flockID == 0)
         {

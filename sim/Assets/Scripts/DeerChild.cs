@@ -14,7 +14,7 @@ public class DeerChild : Animal
         location = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
         flockSpeed = 0.6f;
-        fleeSpeed = 0.1f;
+        fleeSpeed = 0.02f;
 
         lifeSpan(120f, this.gameObject);
     }
@@ -56,13 +56,13 @@ public class DeerChild : Animal
 
         if (flockID == 0)
         {
-            goalPos.x = DeerFlock.Instance.DeerFlock1.transform.position.x + Random.Range(-75f,75f);
-            goalPos.y = DeerFlock.Instance.DeerFlock1.transform.position.y + Random.Range(-75f,75f);
+            goalPos.x = DeerFlock.Instance.DeerFlock1.transform.position.x + Random.Range(-175f,175f);
+            goalPos.y = DeerFlock.Instance.DeerFlock1.transform.position.y + Random.Range(-175f,175f);
         }
         else if (flockID == 1)
         {
-            goalPos.x = DeerFlock.Instance.DeerFlock2.transform.position.x + Random.Range(-75f,75f);
-            goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-75f,75f);
+            goalPos.x = DeerFlock.Instance.DeerFlock2.transform.position.x + Random.Range(-175f,175f);
+            goalPos.y = DeerFlock.Instance.DeerFlock2.transform.position.y + Random.Range(-175f,175f);
         }
 
         

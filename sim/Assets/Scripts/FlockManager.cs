@@ -65,6 +65,8 @@ public class FlockManager : MonoBehaviour
             }
         }
 
+        // find closest prey manager and move to the adjacent tile closest to that location
+
         int starter = Random.Range(0, matches.Count);
 
         //Debug.Log(prefab.tag + "- starter num: " + starter.ToString() + " tile ID: " + matches[starter].ToString() + " matches count: " + matches.Count.ToString());

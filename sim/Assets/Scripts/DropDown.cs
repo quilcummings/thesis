@@ -12,6 +12,11 @@ public class Dropdown : MonoBehaviour
     void Start()
     {
         dd.SetValueWithoutNotify(1);
+        UIManager.wolfFlockNum = 1;
+        UIManager.rabbitFlockNum = 1;
+        UIManager.coyoteFlockNum = 1;
+        UIManager.mountainLionFlockNum = 1;
+        UIManager.deerFlockNum = 1;
     }
 
     public void wolfSelect(int index)

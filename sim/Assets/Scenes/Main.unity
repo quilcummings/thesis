@@ -2013,7 +2013,6 @@ GameObject:
   m_Component:
   - component: {fileID: 240178957}
   - component: {fileID: 240178958}
-  - component: {fileID: 240178960}
   - component: {fileID: 240178961}
   - component: {fileID: 240178962}
   m_Layer: 0
@@ -2072,18 +2071,6 @@ MonoBehaviour:
   cbuttonPressed: 0
   aud: {fileID: 690504949}
   click: {fileID: 8300000, guid: b4255d02f0c65b44fa20c52fcad2119f, type: 3}
---- !u!114 &240178960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240178956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd5bf67a3a7716044bbb635a103d37a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &240178961
 MonoBehaviour:
   m_ObjectHideFlags: 0
