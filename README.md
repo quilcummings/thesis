@@ -24,6 +24,8 @@ YouTube, 21 Mar. 2017, https://www.youtube.com/watch?v=rYoZgpAEkFs&amp;t=1854s&a
 
 “Sprite: Animal Drawings.” Pinterest, 16 Nov. 2018, https://www.pinterest.com/pin/615445105305102241/. 
 
+Baumgart, David. “Hex Basic Set: Painted 2D Terrain: 2D Environments.” Unity Asset Store, https://assetstore.unity.com/packages/2d/environments/hex-basic-set-painted-2d-terrain-52258. 
+
 
 
 
