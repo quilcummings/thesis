@@ -7,3 +7,26 @@ The original idea for this project was to show the precariousness of the interac
 This project was built with Unity 2021.3.9f1 and this repository includes both a MacOS and Windows build.
 
 ### Citations
+
+Okada, Laryssa. Dorfromantik. Toukana Interactive, 2021.
+
+YouTube, 21 Mar. 2017, https://www.youtube.com/watch?v=rYoZgpAEkFs&amp;t=1854s&amp;ab_channel=PaulDinning. Accessed April 2023. 
+
+“Sunrise Sound Effect.” YouTube, YouTube, 27 Oct. 2022, https://www.youtube.com/watch?v=YSeeYYX3GQY&amp;ab_channel=Allsoundsyouneed. Accessed 1 Apr. 2023. 
+
+“Gray and Black Dog Art.” PNGEgg, https://www.pngegg.com/en/png-nsfcv/download. 
+
+“Rabbit Run Cycle.” Pinterest, 13 Feb. 2021, https://www.pinterest.com/pin/stock-photos-royalty-free-stock-photos-royalty-free-photos--342062534206078495/.
+
+“Coyote Run Cycle by Cloofoofoo.” Streak Club, https://streak.club/p/4504/coyote-run-cycle-by-cloofoofoo. 
+
+“Deer Walking.” Shutterstock, https://www.shutterstock.com/search/deer-walking?image_type=vector. 
+
+“Sprite: Animal Drawings.” Pinterest, 16 Nov. 2018, https://www.pinterest.com/pin/615445105305102241/. 
+
+
+
+
+
+
+
